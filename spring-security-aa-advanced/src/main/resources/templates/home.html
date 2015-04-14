@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Home</title>
+</head>
+<body>
+	<h1 th:text="|Hello ${name}!|"></h1>
+	<div th:if="${admin}">
+		<a th:href="@{/root}">Administration page</a>
+	</div>
+	<br />
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign Out" />
+	</form>
+</body>
+</html>
