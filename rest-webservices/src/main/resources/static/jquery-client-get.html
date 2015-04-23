@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+	$(function() {
+		$.ajax({
+			type : "GET",
+			url : "http://localhost:8080/team/0"
+		}).then(function(data) {
+			$('.team-name').append(data.name);
+			$('.team-players').append(JSON.stringify(data.players));
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<p class="team-name">Team:</p>
+		<p class="team-players">Players:</p>
+	</div>
+</body>
+</html>

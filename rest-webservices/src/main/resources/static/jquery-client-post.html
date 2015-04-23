@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+	$(function() {
+		var newTeam = {
+			name : "New team name",
+			players : [ {
+				"name" : "Player 1",
+				"nickname" : "Nick 1"
+			}, {
+				"name" : "Player 2",
+				"nickname" : "Nick 2"
+			} ]
+		};
+		$.ajax({
+			type : "POST",
+			data : JSON.stringify(newTeam),
+			contentType : "application/json",
+			url : "http://localhost:8080/teams"
+		}).then(function(data) {
+			$('.result').append(data);
+		});
+	});
+</script>
+</head>
+<body>
+	<div>
+		<p class="result"></p>
+	</div>
+</body>
+</html>
