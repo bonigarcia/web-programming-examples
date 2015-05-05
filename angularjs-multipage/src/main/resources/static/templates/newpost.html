@@ -1,0 +1,9 @@
+<div ng-controller="NewPostController as vm">
+	<form ng-submit="vm.addPost(vm.newPost)">
+		<b>Name:</b><br> <input type='text' ng-model="vm.newPost.name" /><br>
+		<b>Title:</b><br> <input type='text' ng-model="vm.newPost.title" /><br>
+		<b>Text:</b><br>
+		<textarea name='text' ng-model="vm.newPost.text" rows='5' cols='40'></textarea>
+		<br> <input type='submit' name='New' value="New" />
+	</form>
+</div>

@@ -1,0 +1,7 @@
+<div ng-controller="PostController as vm">
+	<a href="/#/">Back</a>
+	<h1>{{vm.post.title}}</h1>
+	<p>By {{vm.post.name}}</p>
+	<p>{{vm.post.text}}</p>
+	<button type="button" title="Delete" ng-click="vm.deletePost(post)">Delete</button>
+</div>
