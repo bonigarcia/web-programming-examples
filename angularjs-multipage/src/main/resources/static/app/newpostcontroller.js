@@ -1,8 +1,8 @@
 angular.module("app").controller("NewPostController", NewPostController);
 
-NewPostController.$inject = ["blogManager", "$location"];
+NewPostController.$inject = ["blogService", "$location"];
 
-function NewPostController(blogManager, $location) {
+function NewPostController(blogService, $location) {
 
 	var vm = this;
 	
@@ -14,7 +14,7 @@ function NewPostController(blogManager, $location) {
 
 	vm.addPost = function(newPost) {
 		
-		blogManager.newPost(newPost);
+		blogService.newPost(newPost);
 		
 		vm.newPost = {};
 		

@@ -1,8 +1,8 @@
 angular.module("app").controller("PostListController", PostListController);
 
-PostListController.$inject = [ "blogManager", "$location" ];
+PostListController.$inject = [ "blogService", "$location" ];
 
-function PostListController(blogManager, $location) {
+function PostListController(blogService, $location) {
 
 	var vm = this;
 
@@ -12,12 +12,12 @@ function PostListController(blogManager, $location) {
 
 	// Controller logic
 
-	vm.posts = blogManager.getPosts();
+	vm.posts = blogService.getPosts();
 
 	// Controller actions
 
 	vm.deletePost = function(post) {
-		blogManager.deletePost(post);
+		blogService.deletePost(post);
 	};
 
 	vm.viewPost = function(post) {
@@ -25,3 +25,4 @@ function PostListController(blogManager, $location) {
 	};
 
 };
+
