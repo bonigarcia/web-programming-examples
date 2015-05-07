@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AngularJsAdvancedApp {
+public class AngularJsMultiPageApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AngularJsAdvancedApp.class, args);
+		SpringApplication.run(AngularJsMultiPageApp.class, args);
 	}
 }
