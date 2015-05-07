@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AngularJsMediumApp {
+public class AngularJsRestApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AngularJsMediumApp.class, args);
+		SpringApplication.run(AngularJsRestApp.class, args);
 	}
 }
