@@ -1,4 +1,4 @@
-package io.github.web.springmvc;
+package io.github.web.i18n;
 
 import java.util.Locale;
 
