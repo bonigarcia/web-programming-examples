@@ -1,23 +1,24 @@
 # Web Programming Examples
 
-This project contains code examples for the subject "Web Programming" of [U-tad].
+This project contains code examples for web applications using Java in the server-side.
 
-## List of examples
+## List of technologies
 
-* jdbc-mysql : Maven project of CRUD example using MySQL database and JDBC
-* mongodb : Maven project of CRUD example using MongoDB
-* spring-data-h2 : Maven project of CRUD example using H2 database and Spring Data JPA and Spring Boot
-* spring-data-mysql : Maven project of CRUD example using MySQL database and Spring Data JPA and Spring Boot
-* spring-data-mongodb : Maven project of CRUD example using MongoDB database and Spring Data JPA and Spring Boot
-* spring-security-aa-simple : Authentication and authorization with Spring Security (users in memory, one role)
-* spring-security-aa-medium : Authentication and authorization with Spring Security (users in memory, two roles)
-* spring-security-aa-advanced : Authentication and authorization with Spring Security (users in database, two roles)
-* spring-security-https : Confidentiality (HTTPS) with Spring Security
-* junit-selenium : Examples of tests with JUnit and Selenium
+The main technologies involved in these examples are:
+
+* Spring : Java Framework. These examples are base on Spring Boot, Spring MVC, Spring Data, and Spring Security.
+* Thymeleaf : Template engine for Spring MVC.
+* MySQL : Relational database.
+* MongoDB : NoSQLdatabase.
+* JUnit : Unit testing framework.
+* Selenium : Web testing framework.
+* Retrofit : HTTP client for Java (REST services).
+* Jackson : JSON parser.
 
 ## About
 
-This is a project of made by [Boni Garcia], Professor at [U-tad] (Copyright &copy; 2015).
+This is a project made by [Boni Garcia], Professor at [U-tad] and [Universidad Rey Juan Carlos] (Copyright &copy; 2015).
 
 [U-tad]: http://www.u-tad.com/
+[Universidad Rey Juan Carlos]: https://www.urjc.es/
 [Boni Garcia]: http://bonigarcia.github.io/
