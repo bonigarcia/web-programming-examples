@@ -4,8 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -26,11 +27,15 @@ public class TextController {
 				colors);
 	}
 
-	@RequestMapping("/path/{option}/{view}/{lang}")
-	public ModelAndView path(@PathVariable String option,
-			@PathVariable String view, @PathVariable String lang) {
-		// Create and return model
-		return null;
+	@RequestMapping("/processForm1")
+	public ModelAndView process(@RequestParam String info) {
+		return new ModelAndView("result").addObject("result", info);
+	}
+
+	@RequestMapping("/processForm2")
+	public ModelAndView process(@ModelAttribute MyForm info) {
+		return new ModelAndView("result").addObject("result",
+				info.getInfo1() + " and " + info.getInfo2());
 	}
 
 }

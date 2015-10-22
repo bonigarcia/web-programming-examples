@@ -12,7 +12,7 @@ public class SessionController {
 
 	private String sharedInfo;
 
-	@RequestMapping(value = "/processForm")
+	@RequestMapping(value = "/processFormSession")
 	public ModelAndView processForm(@RequestParam String info,
 			HttpSession sesion) {
 
