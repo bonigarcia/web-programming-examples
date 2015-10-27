@@ -1,17 +1,18 @@
 package io.github.web.data.mysql;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Controller;
+import javax.annotation.PostConstruct;
 
-@Controller
-public class DataBaseUsage implements CommandLineRunner {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DatabaseLoader {
 
 	@Autowired
 	private CustomerRepository repository;
 
-	@Override
-	public void run(String... args) throws Exception {
+	@PostConstruct
+	private void initDatabase() {
 		// Create
 		repository.save(new Customer("John", "Doe"));
 		repository.save(new Customer("Michael", "Smith"));

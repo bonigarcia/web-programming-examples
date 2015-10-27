@@ -1,17 +1,18 @@
-package io.github.web.data.h2;
+package io.github.web.data.mongodb;
+
+import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
-@Controller
-public class DataBaseUsage implements CommandLineRunner {
+@Component
+public class DatabaseLoader {
 
 	@Autowired
 	private CustomerRepository repository;
 
-	@Override
-	public void run(String... args) throws Exception {
+	@PostConstruct
+	private void initDatabase() {
 		// Create
 		repository.save(new Customer("John", "Doe"));
 		repository.save(new Customer("Michael", "Smith"));
@@ -29,7 +30,7 @@ public class DataBaseUsage implements CommandLineRunner {
 		}
 
 		// Delete
-		long firstId = repository.findAll().iterator().next().getId();
+		String firstId = repository.findAll().iterator().next().getId();
 		repository.delete(firstId);
 		System.out.println(repository.count());
 	}
