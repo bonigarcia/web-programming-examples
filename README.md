@@ -6,7 +6,7 @@ This project contains code examples for web applications using Java in the serve
 
 The main technologies involved in these examples are:
 
-* Spring : Java Framework. These examples are base on Spring Boot, Spring MVC, Spring Data, and Spring Security.
+* Spring : Java Framework. These examples are base on Spring Boot, Spring MVC, Spring Data, Spring Security, and Spring Test.
 * Thymeleaf : Template engine for Spring MVC.
 * MySQL : Relational database.
 * MongoDB : NoSQLdatabase.
