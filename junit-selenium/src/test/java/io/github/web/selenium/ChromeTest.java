@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,15 +17,21 @@ public class ChromeTest {
 	private static final int TIMEOUT = 30; // seconds
 	private WebDriver driver;
 
-	@Before
-	public void setup() {
+	@BeforeClass
+	public static void setupClass() {
 		ChromeDriverManager.getInstance().setup();
+	}
+
+	@Before
+	public void setupTest() {
 		driver = new ChromeDriver();
 	}
 
 	@After
 	public void teardown() {
-		driver.quit();
+		if (driver != null) {
+			driver.quit();
+		}
 	}
 
 	@Test
