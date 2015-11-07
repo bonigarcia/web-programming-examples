@@ -5,6 +5,7 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -50,15 +51,16 @@ public class SpringTest {
 		// Open system under test
 		driver.get("http://localhost:8080/");
 
-		// Verify that first page has title "Home page"
-		ExpectedConditions.titleIs("Home page").apply(driver);
+		// Verify first page title
+		Assert.assertTrue(ExpectedConditions.titleIs(
+				"Spring Boot Test - Page 1").apply(driver));
 
 		// Click on link
 		driver.findElement(By.linkText("another")).click();
 
-		// Verify that second page contains the string "Hello"
-		ExpectedConditions.textToBePresentInElementLocated(By.tagName("body"),
-				"Hello").apply(driver);
+		// Verify second page text content
+		Assert.assertTrue(ExpectedConditions.textToBePresentInElementLocated(
+				By.tagName("body"), "Hello").apply(driver));
 	}
 
 }
