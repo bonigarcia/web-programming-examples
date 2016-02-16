@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="http://server.com" method="get">
+        <label for="txt">Name</label>
+        <input id="txt" name="txt" type="text" placeholder="Name">
+        <br>
+        <br>
+        <label for="passwd">Password</label>
+        <input id="passwd" name="passwd" type="password" placeholder="Password">
+        <br>
+        <br>
+        <label for="myfile">File</label>
+        <input id="myfile" name="myfile" type="file">
+        <br>
+        <br>
+        <label for="rad">Gender</label>
+        <br>
+        <label for="male">Male</label>
+        <input id="male" name="rad" type="radio" value="male">
+        <br>
+        <label for="female">Female</label>
+        <input id="female" name="rad" type="radio" value="female">
+        <br>
+        <br>
+        <label for="chk">Accept conditions </label>
+        <input id="chk" name="chk" type="checkbox" value="on">
+        <br>
+        <br>
+        <label for="comments">Comments</label>
+        <textarea id="comments" name="comments"></textarea>
+        <br>
+        <br>
+        <input name="notvisible" type="hidden">
+        <br>
+        <label for="country">Country</label>
+        <select id="country" name="country">
+            <option value="es">Spain</option>
+            <option value="uk">United Kingdom</option>
+            <option value="usa">United States</option>
+        </select>
+        <br>
+        <br>
+        <label for="hobbies">Interests</label>
+        <select id="hobbies" name="hobbies" size="3" multiple="multiple">
+            <option value="es">Music</option>
+            <option value="sp">Sports</option>
+            <option value="misc">Other</option>
+        </select>
+        <br>
+        <br>
+        <input id="name" name="name" type="button" value="Validate">
+        <input type="submit" value="Send">
+        <br>
+        <br>
+    </form>
+
+</body>
+
+</html>
