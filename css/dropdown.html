@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul li {
+	display: inline-block;
+	position: relative;
+	margin-right: -4px;
+	padding: 15px 20px;
+	background: #eee;
+}
+
+ul li:hover {
+	background: #ccc;
+}
+
+ul li ul {
+	position: absolute;
+	left: 0;
+	top: 48px;
+	padding: 0;
+	display: none;
+}
+
+ul li:hover ul {
+	display: block;
+}
+
+ul li ul li {
+	background: #ccc;
+	display: block;
+}
+
+ul li ul li:hover {
+	background: #eee;
+}
+
+</style>
+</head>
+
+<body>
+	<ul>
+		<li>Home</li>
+		<li>About</li>
+		<li>Portfolio
+			<ul>
+				<li>Web Design</li>
+				<li>Web Development</li>
+				<li>Illustrations</li>
+			</ul>
+		</li>
+		<li>Blog</li>
+		<li>Contact</li>
+	</ul>
+</body>
+</html>
