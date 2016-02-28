@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<!-- 
+<body>
+<div class="container">
+
+
+</div>
+</body>
+</html>
+-->
+
+<body>
+<div class="container">
+
+
+
+
+<h2>Vertical (basic) form</h2>
+<form role="form">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<h2>Inline form</h2>
+<!-- 
+<p>Make the viewport larger than 768px wide to see that all of the form elements are inline, left aligned, and the labels are alongside.</p>
+ -->
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<h2>Inline form with .sr-only class</h2>
+<p>Make the viewport larger than 768px wide to see that all of the form elements are inline, left aligned, and the labels are alongside.</p>
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <label class="sr-only" for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+<h2>Horizontal form</h2>
+<form role="form">
+<label class="control-label col-sm-2" for="email">Email:</label>
+<input type="email" class="form-control" id="email" placeholder="Enter email">
+
+<label class="control-label col-sm-2" for="pwd">Password:</label>
+<input type="password" class="form-control" id="pwd" placeholder="Enter password">
+
+<label><input type="checkbox"> Remember me</label>
+                    
+<button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+<h2>Horizontal form</h2>
+<form class="form-horizontal" role="form">
+<label class="control-label col-sm-2" for="email">Email:</label>
+<input type="email" class="form-control" id="email" placeholder="Enter email">
+
+<label class="control-label col-sm-2" for="pwd">Password:</label>
+<input type="password" class="form-control" id="pwd" placeholder="Enter password">
+
+<label><input type="checkbox"> Remember me</label>
+                    
+<button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<h2>Horizontal form</h2>
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Email:</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" placeholder="Enter email">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Password:</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Remember me</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+</form>
+
+<h2>Form control: input</h2>
+<p>The form below contains two input elements; one of type text and one of type password:</p>
+<form role="form">
+    <div class="form-group">
+        <label for="usr">Name:</label>
+        <input type="text" class="form-control" id="usr">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd">
+    </div>
+</form>
+
+<h2>Form control: textarea</h2>
+<p>The form below contains a textarea for comments:</p>
+<form role="form">
+    <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea class="form-control" rows="5" id="comment"></textarea>
+    </div>
+</form>
+
+<h2>Form control: checkbox</h2>
+<p>The form below contains three checkboxes. The last option is disabled:</p>
+<form role="form">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="">Option 1</label>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="">Option 2</label>
+    </div>
+    <div class="checkbox disabled">
+        <label>
+            <input type="checkbox" value="" disabled>Option 3</label>
+    </div>
+</form>
+
+
+<h2>Form control: inline checkbox</h2>
+<p>The form below contains three inline checkboxes:</p>
+<form role="form">
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 1
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 2
+    </label>
+    <label class="checkbox-inline">
+        <input type="checkbox" value="">Option 3
+    </label>
+</form>
+
+<h2>Form control: radio buttons</h2>
+<p>The form below contains three radio buttons. The last option is disabled:</p>
+<form role="form">
+    <div class="radio">
+        <label>
+            <input type="radio" name="optradio">Option 1</label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optradio">Option 2</label>
+    </div>
+    <div class="radio disabled">
+        <label>
+            <input type="radio" name="optradio" disabled>Option 3</label>
+    </div>
+</form>
+
+<h2>Form control: inline radio buttons</h2>
+<p>The form below contains three inline radio buttons:</p>
+<form role="form">
+    <label class="radio-inline">
+        <input type="radio" name="optradio">Option 1
+    </label>
+    <label class="radio-inline">
+        <input type="radio" name="optradio">Option 2
+    </label>
+    <label class="radio-inline">
+        <input type="radio" name="optradio">Option 3
+    </label>
+</form>
+
+<h2>Form control: select</h2>
+<p>The form below contains two dropdown menus (select lists):</p>
+<form role="form">
+    <div class="form-group">
+        <label for="sel1">Select list (select one):</label>
+        <select class="form-control" id="sel1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+        <br>
+        <label for="sel2">Mutiple select list (hold shift to select more than one):</label>
+        <select multiple class="form-control" id="sel2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+</form>
+
+<h2>Horizontal form with static control</h2>
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Email:</label>
+        <div class="col-sm-10">
+            <p class="form-control-static">someone@example.com</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="pwd">Password:</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+</form>
+
+<h2>Horizontal form: control states</h2>
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Focused</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="focusedInput" type="text" value="Click to focus...">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword" class="col-sm-2 control-label">Disabled</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
+        </div>
+    </div>
+    <fieldset disabled>
+        <div class="form-group">
+            <label for="disabledTextInput" class="col-sm-2 control-label">Disabled input and select list (Fieldset disabled)</label>
+            <div class="col-sm-10">
+                <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="disabledSelect" class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <select id="disabledSelect" class="form-control">
+                    <option>Disabled select</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group has-success has-feedback">
+        <label class="col-sm-2 control-label" for="inputSuccess">Input with success and glyphicon</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputSuccess">
+            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+        </div>
+    </div>
+    <div class="form-group has-warning has-feedback">
+        <label class="col-sm-2 control-label" for="inputWarning">Input with warning and glyphicon</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputWarning">
+            <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+        </div>
+    </div>
+    <div class="form-group has-error has-feedback">
+        <label class="col-sm-2 control-label" for="inputError">Input with error and glyphicon</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputError">
+            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+        </div>
+    </div>
+</form>
+
+<h2>Inline form: control states</h2>
+<form class="form-inline" role="form">
+    <div class="form-group">
+        <label for="focusedInput">Focused</label>
+        <input class="form-control" id="focusedInput" type="text">
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Disabled</label>
+        <input class="form-control" id="disabledInput" type="text" disabled>
+    </div>
+    <div class="form-group has-success has-feedback">
+        <label for="inputSuccess2">Input with success</label>
+        <input type="text" class="form-control" id="inputSuccess2">
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+    </div>
+    <div class="form-group has-warning has-feedback">
+        <label for="inputWarning2">Input with warning</label>
+        <input type="text" class="form-control" id="inputWarning2">
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    </div>
+    <div class="form-group has-error has-feedback">
+        <label for="inputError2">Input with error</label>
+        <input type="text" class="form-control" id="inputError2">
+        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    </div>
+</form>
+
+<h2>Input Sizing</h2>
+<p>The form below shows input elements with different heights using .input-lg and .input-sm:</p>
+<form role="form">
+    <div class="form-group">
+        <label for="inputdefault">Default input</label>
+        <input class="form-control" id="inputdefault" type="text">   </div>
+    <div class="form-group">
+    
+        <label for="inputlg">input-lg</label>
+        <input class="form-control input-lg" id="inputlg" type="text">
+    </div>
+    <div class="form-group">
+    
+        <label for="inputsm">input-sm</label>
+    
+        <input class="form-control input-sm" id="inputsm" type="text">   </div>
+    <div class="form-group">
+        <label for="sel1">Default select list</label>
+        <select class="form-control" id="sel1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="sel2">input-lg</label>
+        <select class="form-control input-lg" id="sel2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="sel3">input-sm</label>
+        <select class="form-control input-sm" id="sel3">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
+    </div>
+</form>
+
+<h2>Input Sizing</h2>
+<p>You can quickly size labels and form controls within a Horizontal form by adding .form-group-lg or .form-group-sm to the div class="form-group" element:</p>
+<form class="form-horizontal" role="form">
+    <div class="form-group form-group-lg">
+        <label class="col-sm-2 control-label" for="lg">form-group-lg</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" id="lg">
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label class="col-sm-2 control-label" for="sm">form-group-sm</label>
+        <div class="col-sm-10">
+            <input class="form-control" type="text" id="sm">
+        </div>
+    </div>
+</form>
+
+<h2>Column Sizing</h2>
+<p>The form below shows input elements with different widths using different .col-xs-* classes:</p>
+<form role="form">
+    <div class="form-group">
+        <div class="col-xs-2">
+            <label for="ex1">col-xs-2</label>
+            <input class="form-control" id="ex1" type="text">
+        </div>
+        <div class="col-xs-3">
+            <label for="ex2">col-xs-3</label>
+            <input class="form-control" id="ex2" type="text">
+        </div>
+        <div class="col-xs-4">
+            <label for="ex3">col-xs-4</label>
+            <input class="form-control" id="ex3" type="text">
+        </div>
+    </div>
+</form>
+
+<h2>Help text</h2>
+<p>Use the .help-block class to add a block level help text in forms:</p>
+<form role="form">
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+        <span class="help-block">This is some help text that breaks onto a new line and may extend more than one line.</span>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+
+</div>
+</body>
+</html>
