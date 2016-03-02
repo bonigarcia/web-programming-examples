@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+                <h2>Form validation</h2>
+                <form role="form">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="color">Color:</label>
+                        <input type="color" class="form-control" id="color" placeholder="Select color" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date:</label>
+                        <input type="date" class="form-control" id="date" placeholder="Select date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">URL:</label>
+                        <input type="url" class="form-control" id="url" placeholder="Select URL" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Country code:</label>
+                        <input type="text" class="form-control" id="country" placeholder="Two letter country code" pattern="[A-Za-z]{2}" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
