@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function Person(first, last) {
+		this.firstName = first;
+		this.lastName = last;
+	}
+
+	Person.prototype.toString = function() {
+		return this.firstName + " " + this.lastName;
+	};
+
+	function Worker(first, last, work) {
+		Person.call(this, first, last);
+		this.job = work;
+	}
+	
+	Worker.prototype = new Person();
+
+	Worker.prototype.toString = function() {
+		return Person.prototype.toString.call(this) + " - Job: " + this.job;
+	};
+
+	var john = new Worker("John", "Doe", "Professor");
+	console.info(john);
+	console.info(john.toString());
+</script>
+</head>
+<body>
+</body>
+</html>

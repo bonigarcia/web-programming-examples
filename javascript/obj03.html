@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function person(first, last, age, eyecolor) {
+		this.firstName = first;
+		this.lastName = last;
+		this.age = age;
+		this.eyeColor = eyecolor;
+	}
+	var man = new person("John", "Doe", 50, "blue");
+	var women = new person("Sally", "Rally", 48, "green");
+
+	document.write(man.firstName + " and " + women.firstName);
+</script>
+</head>
+<body>
+</body>
+</html>
+

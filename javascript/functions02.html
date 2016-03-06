@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function myFunction(x, y) {
+		console.info("x=" + x);
+		if (!y) {
+			console.warn("Argument y not present");
+		} else {
+			console.log("y=" + y);
+		}
+		console.info("-------");
+	}
+	myFunction(1);
+	myFunction(1, 2);
+	myFunction(3, 4, 5);
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	var person = {
+		firstName : "John",
+		lastName : "Doe",
+		fullName : function() {
+			return this.firstName + " " + this.lastName;
+		}
+	};
+	function modifyMethod() {
+		person.fullName = function() {
+			return this.firstName;
+		}
+	}
+	function deleteMethod() {
+		delete person.fullName;
+	}
+</script>
+</head>
+<body>
+	<button onclick="console.log(person.fullName());">Full name</button>
+	<button onclick="modifyMethod();">Modify method</button>
+	<button onclick="deleteMethod();">Delete method</button>
+	<button onclick="console.log(person);">Person</button>
+</body>
+</html>

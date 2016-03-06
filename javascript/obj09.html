@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	var person = {
+		firstName : "John",
+		lastName : "Doe",
+		id : 5566,
+		fullName : function() {
+			return this.firstName + " " + this.lastName;
+		}
+	};
+
+	function modifyPerson() {
+		person.fullName = function() {
+			return this.firstName;
+		}
+	}
+</script>
+</head>
+<body>
+	<button onclick="console.log(person.fullName());">Person</button>
+	<button onclick="modifyPerson();">Modify</button>
+</body>
+</html>

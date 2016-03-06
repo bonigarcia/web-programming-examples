@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	var person = {
+		firstName : "John",
+		lastName : "Doe",
+		id : 5566,
+		fullName : function() {
+			return this.firstName + " " + this.lastName;
+		}
+	};
+
+	var john = Object.create(person);
+	document.write(john.fullName())
+</script>
+</head>
+<body>
+</body>
+</html>
+

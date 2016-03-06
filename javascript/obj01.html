@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	var person = {
+		firstName : "John",
+		lastName : "Doe",
+		id : 5566,
+		fullName : function() {
+			return this.firstName + " " + this.lastName;
+		}
+	};
+
+</script>
+</head>
+<body>
+	<button onclick="console.log(person.firstName);">Read first name</button>
+	<button onclick="console.log(person['lastName']);">Read last name</button>
+	<button onclick="console.log(person.fullName());">Get full name</button>
+</body>
+</html>
+

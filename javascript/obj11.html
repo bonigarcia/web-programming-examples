@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function person(first, last, age, eyecolor) {
+		this.firstName = first;
+		this.lastName = last;
+		this.age = age;
+		this.eyeColor = eyecolor;
+	}
+	person.prototype.name = function() {
+		return this.firstName + " " + this.lastName;
+	};
+</script>
+</head>
+<body>
+</body>
+</html>

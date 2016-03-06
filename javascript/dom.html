@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	var obj1 = document.getElementById("objId");
+
+	var objArray = document.getElementsByName("objName");
+	var liArray = document.getElementsByTagName("li")
+	var classArray = document.getElementsByClassName("myclass");
+
+	var element = document.getElementById("txt");
+	element.innerHTML = "<p>Nuevo texto</p>"
+
+	var element = document.getElementById("img1");
+	element.style.borderWidth = width + "px";
+
+	function validateForm() {
+		var x = document.forms["myForm"]["fname"].value;
+		if (x == null || x == "") {
+			alert("Name must be filled out");
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="myForm" action="demo_form.asp"
+		onsubmit="return validateForm()" method="post">
+		Name: <input type="text" name="fname"> <input type="submit"
+			value="Submit">
+	</form>
+</body>
+</html>
