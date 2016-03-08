@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	try {
+		var error = "...";
+		if (error) {
+			throw "An error";
+		}
+		return true;
+	} catch (e) {
+		alert(e);
+		return false;
+	} finally {
+		//do cleanup, etc here
+	}
+</script>
+</head>
+<body>
+</body>
+</html>
