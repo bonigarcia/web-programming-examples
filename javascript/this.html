@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	console.log("1 " + this); // Window
+
+	function f1() {
+		return this;
+	}
+	console.log("2.a " + f1()); // Window
+
+	function f2() {
+		"use strict";
+		return this;
+	}
+	console.log("2.b " + f2()); // undefined
+	console.log("2.c " + window.f2()); // Window
+
+	var foo = {
+		baz : function() {
+			console.log("2.d " + this);
+		}
+	}
+	foo.baz(); // Object
+
+	function myObject() {
+		this.a = 37;
+	}
+	var o = new myObject();
+	console.log("3 " + o.a); // 37
+</script>
+</head>
+<body>
+</body>
+</html>
