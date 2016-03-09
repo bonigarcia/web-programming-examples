@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$("button").click(function() {
+			var div = $("div");
+			div.animate({
+				left : '200px'
+			}, "slow");
+			div.animate({
+				fontSize : '3em',
+				opacity : '0.2'
+			}, 3000);
+		});
+	});
+</script>
+</head>
+<body>
+	<button>Start Animation</button>
+	<div
+		style="background: lime; position: absolute;">HELLO</div>
+</body>
+</html>
+

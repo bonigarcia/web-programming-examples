@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#toggle").click(function() {
+			$("#p1").toggle("slow");
+		});
+		$("#fade").click(function() {
+			$("#p2").fadeToggle("slow");
+		});
+		$("#slide").click(function() {
+			$("#p3").slideToggle("slow");
+		});
+	});
+</script>
+<style>
+div {
+	text-align: center;
+	background-color: orange;
+	border: solid 1px black;
+	padding: 50px;
+	display: none;
+}
+</style>
+</head>
+<body>
+	<button id="toggle">Toggle</button>
+	<div id="p1">Hello world!</div>
+	<button id="fade">Fade</button>
+	<div id="p2">Hello world!</div>
+	<button id="slide">Slide</button>
+	<div id="p3">Hello world!</div>
+</body>
+</html>

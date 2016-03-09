@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		$("#btn1").click(function() {
+			$("h1, h2").addClass("blue");
+		});
+
+		$("#btn2").click(function() {
+			$("p").css("background-color", "yellow");
+		});
+	});
+</script>
+<style>
+.blue {
+	color: blue;
+}
+</style>
+</head>
+<body>
+	<h1>Heading 1</h1>
+	<h2>Heading 2</h2>
+	<p style="background-color: #ff0000">This is a paragraph.</p>
+	<p style="background-color: #00ff00">This is a paragraph.</p>
+	<p style="background-color: #0000ff">This is a paragraph.</p>
+	<button id="btn1">Add classes to elements</button>
+	<button id="btn2">Set background-color of p</button>
+</body>
+</html>
+
+
