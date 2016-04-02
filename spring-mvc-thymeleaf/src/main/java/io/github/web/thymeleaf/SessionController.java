@@ -10,23 +10,23 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SessionController {
 
-	private String sharedInfo;
+    private String sharedInfo;
 
-	@RequestMapping(value = "/processFormSession")
-	public ModelAndView processForm(@RequestParam String info,
-			HttpSession sesion) {
+    @RequestMapping(value = "/processFormSession")
+    public ModelAndView processForm(@RequestParam String info,
+            HttpSession sesion) {
 
-		sesion.setAttribute("userInfo", info);
-		sharedInfo = info;
-		return new ModelAndView("info_result");
-	}
+        sesion.setAttribute("userInfo", info);
+        sharedInfo = info;
+        return new ModelAndView("info_session");
+    }
 
-	@RequestMapping("/showData")
-	public ModelAndView showData(HttpSession sesion) {
-		String userInfo = (String) sesion.getAttribute("userInfo");
+    @RequestMapping("/showDataSession")
+    public ModelAndView showData(HttpSession session) {
+        String userInfo = (String) session.getAttribute("userInfo");
 
-		return new ModelAndView("data_page").addObject("userInfo", userInfo)
-				.addObject("sharedInfo", sharedInfo);
-	}
+        return new ModelAndView("data_session").addObject("userInfo", userInfo)
+                .addObject("sharedInfo", sharedInfo);
+    }
 
 }
