@@ -16,27 +16,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/posts")
 public class PostRestController {
 
-	@Autowired
-	private PostRepository postRepository;
+    @Autowired
+    private PostRepository postRepository;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public List<Post> allPosts(Model model) {
-		return postRepository.findAll();
-	}
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Post> allPosts(Model model) {
+        return postRepository.findAll();
+    }
 
-	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Post> addPost(@RequestBody Post post) {
-		postRepository.save(post);
-		return new ResponseEntity<>(post, HttpStatus.CREATED);
-	}
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<Post> addPost(@RequestBody Post post) {
+        postRepository.save(post);
+        return new ResponseEntity<>(post, HttpStatus.CREATED);
+    }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void deleteItem(@PathVariable Integer id) {
-		postRepository.delete(id);
-	}
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteItem(@PathVariable Integer id) {
+        postRepository.delete(id);
+    }
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Post getPost(@PathVariable int id) {
-		return postRepository.findOne(id);
-	}
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Post getPost(@PathVariable int id) {
+        return postRepository.findOne(id);
+    }
 }

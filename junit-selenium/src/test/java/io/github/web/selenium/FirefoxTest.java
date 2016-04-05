@@ -11,28 +11,28 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FirefoxTest {
 
-	private static final int TIMEOUT = 30; // seconds
-	private WebDriver driver;
+    private static final int TIMEOUT = 30; // seconds
+    private WebDriver driver;
 
-	@Before
-	public void setup() {
-		driver = new FirefoxDriver();
-	}
+    @Before
+    public void setup() {
+        driver = new FirefoxDriver();
+    }
 
-	@After
-	public void teardown() {
-		driver.quit();
-	}
+    @After
+    public void teardown() {
+        driver.quit();
+    }
 
-	@Test
-	public void testFirefox() {
-		driver.get("http://en.wikipedia.org/wiki/Main_Page");
-		driver.findElement(By.id("searchInput")).sendKeys("Software");
-		driver.findElement(By.id("searchButton")).click();
+    @Test
+    public void testFirefox() {
+        driver.get("http://en.wikipedia.org/wiki/Main_Page");
+        driver.findElement(By.id("searchInput")).sendKeys("Software");
+        driver.findElement(By.id("searchButton")).click();
 
-		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-		wait.until(ExpectedConditions.textToBePresentInElementLocated(
-				By.tagName("body"), "Computer software or simply software"));
-	}
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(
+                By.tagName("body"), "Computer software or simply software"));
+    }
 
 }

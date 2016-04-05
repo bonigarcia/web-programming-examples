@@ -25,62 +25,62 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 @RunWith(Parameterized.class)
 public class SpringParametrizedTest {
 
-	private static final long TIMEOUT = 30; // seconds
-	private WebDriver driver;
-	private Class<? extends WebDriver> driverClass;
-	private ConfigurableApplicationContext context;
+    private static final long TIMEOUT = 30; // seconds
+    private WebDriver driver;
+    private Class<? extends WebDriver> driverClass;
+    private ConfigurableApplicationContext context;
 
-	public SpringParametrizedTest(Class<? extends WebDriver> driverClass)
-			throws InstantiationException, IllegalAccessException {
-		this.driverClass = driverClass;
-	}
+    public SpringParametrizedTest(Class<? extends WebDriver> driverClass)
+            throws InstantiationException, IllegalAccessException {
+        this.driverClass = driverClass;
+    }
 
-	@Parameters(name = "{index}: {0}")
-	public static Collection<Object[]> data() {
-		return Arrays.asList(new Object[][] { { ChromeDriver.class },
-				{ FirefoxDriver.class } });
-	}
+    @Parameters(name = "{index}: {0}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] { { ChromeDriver.class },
+                { FirefoxDriver.class } });
+    }
 
-	@BeforeClass
-	public static void setupClass() {
-		ChromeDriverManager.getInstance().setup();
-	}
+    @BeforeClass
+    public static void setupClass() {
+        ChromeDriverManager.getInstance().setup();
+    }
 
-	@Before
-	public void setup() throws Exception {
-		this.driver = driverClass.newInstance();
-		this.context = SpringApplication.run(SpringTestDemoApp.class);
-	}
+    @Before
+    public void setup() throws Exception {
+        this.driver = driverClass.newInstance();
+        this.context = SpringApplication.run(SpringTestDemoApp.class);
+    }
 
-	@After
-	public void teardown() {
-		if (context != null) {
-			context.close();
-		}
-		if (driver != null) {
-			driver.quit();
-		}
-	}
+    @After
+    public void teardown() {
+        if (context != null) {
+            context.close();
+        }
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
-	@Test
-	public void test() {
-		// Always wait TIMEOUT seconds
-		driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
+    @Test
+    public void test() {
+        // Always wait TIMEOUT seconds
+        driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
 
-		// Open system under test
-		driver.get("http://localhost:8080/");
+        // Open system under test
+        driver.get("http://localhost:8080/");
 
-		// Verify first page title
-		Assert.assertTrue(ExpectedConditions
-				.titleIs("Spring Boot Test - Page 1").apply(driver));
+        // Verify first page title
+        Assert.assertTrue(ExpectedConditions
+                .titleIs("Spring Boot Test - Page 1").apply(driver));
 
-		// Click on link
-		driver.findElement(By.linkText("another")).click();
+        // Click on link
+        driver.findElement(By.linkText("another")).click();
 
-		// Verify second page text content
-		Assert.assertTrue(ExpectedConditions
-				.textToBePresentInElementLocated(By.tagName("body"), "Hello")
-				.apply(driver));
-	}
+        // Verify second page text content
+        Assert.assertTrue(ExpectedConditions
+                .textToBePresentInElementLocated(By.tagName("body"), "Hello")
+                .apply(driver));
+    }
 
 }

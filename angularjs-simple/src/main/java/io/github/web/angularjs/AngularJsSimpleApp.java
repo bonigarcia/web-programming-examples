@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AngularJsSimpleApp {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AngularJsSimpleApp.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(AngularJsSimpleApp.class, args);
+    }
 }

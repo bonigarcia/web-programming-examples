@@ -15,50 +15,50 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Entity
 public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	private String user;
+    private String user;
 
-	private String password;
+    private String password;
 
-	@ElementCollection(fetch = FetchType.EAGER)
-	private List<GrantedAuthority> roles;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<GrantedAuthority> roles;
 
-	public User() {
-	}
+    public User() {
+    }
 
-	public User(String user, String password, List<GrantedAuthority> roles) {
-		this.user = user;
-		this.password = new BCryptPasswordEncoder().encode(password);
-		this.roles = roles;
-	}
+    public User(String user, String password, List<GrantedAuthority> roles) {
+        this.user = user;
+        this.password = new BCryptPasswordEncoder().encode(password);
+        this.roles = roles;
+    }
 
-	// getters, setters
+    // getters, setters
 
-	public String getUser() {
-		return user;
-	}
+    public String getUser() {
+        return user;
+    }
 
-	public void setUser(String user) {
-		this.user = user;
-	}
+    public void setUser(String user) {
+        this.user = user;
+    }
 
-	public String getPasswordHash() {
-		return password;
-	}
+    public String getPasswordHash() {
+        return password;
+    }
 
-	public void setPasswordHash(String passwordHash) {
-		this.password = passwordHash;
-	}
+    public void setPasswordHash(String passwordHash) {
+        this.password = passwordHash;
+    }
 
-	public List<GrantedAuthority> getRoles() {
-		return roles;
-	}
+    public List<GrantedAuthority> getRoles() {
+        return roles;
+    }
 
-	public void setRoles(List<GrantedAuthority> roles) {
-		this.roles = roles;
-	}
+    public void setRoles(List<GrantedAuthority> roles) {
+        this.roles = roles;
+    }
 
 }

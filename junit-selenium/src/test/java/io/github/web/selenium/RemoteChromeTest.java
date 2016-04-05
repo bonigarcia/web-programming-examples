@@ -13,30 +13,31 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class RemoteChromeTest {
 
-	private WebDriver driver;
+    private WebDriver driver;
 
-	@Before
-	public void setup() throws MalformedURLException {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		ChromeOptions options = new ChromeOptions();
-		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-		capabilities.setBrowserName(DesiredCapabilities.chrome()
-				.getBrowserName());
+    @Before
+    public void setup() throws MalformedURLException {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        ChromeOptions options = new ChromeOptions();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+        capabilities
+                .setBrowserName(DesiredCapabilities.chrome().getBrowserName());
 
-		String hubAddress = "127.0.0.1";
-		int hubPort = 4444;
-		driver = new RemoteWebDriver(new URL("http://" + hubAddress + ":"
-				+ hubPort + "/wd/hub"), capabilities);
-	}
+        String hubAddress = "127.0.0.1";
+        int hubPort = 4444;
+        driver = new RemoteWebDriver(
+                new URL("http://" + hubAddress + ":" + hubPort + "/wd/hub"),
+                capabilities);
+    }
 
-	@After
-	public void teardown() {
-		driver.quit();
-	}
+    @After
+    public void teardown() {
+        driver.quit();
+    }
 
-	@Test
-	public void testRemote() {
-		driver.get("http://www.google.com/");
-	}
+    @Test
+    public void testRemote() {
+        driver.get("http://www.google.com/");
+    }
 
 }

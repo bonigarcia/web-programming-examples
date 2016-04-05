@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 public class SpringMvcHelloWorldApp extends WebMvcConfigurerAdapter {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringMvcHelloWorldApp.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringMvcHelloWorldApp.class, args);
+    }
 }

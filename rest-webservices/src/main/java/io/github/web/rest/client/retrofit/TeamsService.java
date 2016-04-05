@@ -11,12 +11,12 @@ import io.github.web.rest.service.Team;
 
 public interface TeamsService {
 
-	@GET("/teams")
-	List<Team> getTeams();
+    @GET("/teams")
+    List<Team> getTeams();
 
-	@GET("/team/{index}")
-	Team getTeam(@Path("index") int index);
+    @GET("/team/{index}")
+    Team getTeam(@Path("index") int index);
 
-	@POST("/teams")
-	boolean addTeam(@Body Team team);
+    @POST("/teams")
+    boolean addTeam(@Body Team team);
 }

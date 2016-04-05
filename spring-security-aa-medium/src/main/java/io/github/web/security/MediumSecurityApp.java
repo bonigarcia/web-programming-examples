@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 public class MediumSecurityApp extends WebMvcConfigurerAdapter {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MediumSecurityApp.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MediumSecurityApp.class, args);
+    }
 }

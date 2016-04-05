@@ -7,11 +7,11 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CustomerRepository extends CrudRepository<Customer, Long> {
 
-	List<Customer> findByLastName(String lastName);
+    List<Customer> findByLastName(String lastName);
 
-	List<Customer> findByFirstName(String firstName);
+    List<Customer> findByFirstName(String firstName);
 
-	@Query(value = "SELECT * FROM CUSTOMER", nativeQuery = true)
-	List<Customer> selectAll();
+    @Query(value = "SELECT * FROM CUSTOMER", nativeQuery = true)
+    List<Customer> selectAll();
 
 }

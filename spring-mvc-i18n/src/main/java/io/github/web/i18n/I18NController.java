@@ -7,9 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class I18NController {
 
-	@RequestMapping("/i18n")
-	public ModelAndView i18n() {
-		return new ModelAndView("i18n_page");
-	}
+    @RequestMapping("/i18n")
+    public ModelAndView i18n() {
+        return new ModelAndView("i18n_page");
+    }
 
 }

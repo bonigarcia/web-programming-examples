@@ -14,35 +14,35 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ChromeTest {
 
-	private static final int TIMEOUT = 30; // seconds
-	private WebDriver driver;
+    private static final int TIMEOUT = 30; // seconds
+    private WebDriver driver;
 
-	@BeforeClass
-	public static void setupClass() {
-		ChromeDriverManager.getInstance().setup();
-	}
+    @BeforeClass
+    public static void setupClass() {
+        ChromeDriverManager.getInstance().setup();
+    }
 
-	@Before
-	public void setupTest() {
-		driver = new ChromeDriver();
-	}
+    @Before
+    public void setupTest() {
+        driver = new ChromeDriver();
+    }
 
-	@After
-	public void teardown() {
-		if (driver != null) {
-			driver.quit();
-		}
-	}
+    @After
+    public void teardown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
-	@Test
-	public void testChrome() {
-		driver.get("http://en.wikipedia.org/wiki/Main_Page");
-		driver.findElement(By.id("searchInput")).sendKeys("Software");
-		driver.findElement(By.id("searchButton")).click();
+    @Test
+    public void testChrome() {
+        driver.get("http://en.wikipedia.org/wiki/Main_Page");
+        driver.findElement(By.id("searchInput")).sendKeys("Software");
+        driver.findElement(By.id("searchButton")).click();
 
-		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-		wait.until(ExpectedConditions.textToBePresentInElementLocated(
-				By.tagName("body"), "Computer software or simply software"));
-	}
+        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(
+                By.tagName("body"), "Computer software or simply software"));
+    }
 
 }

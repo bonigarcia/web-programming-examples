@@ -15,34 +15,34 @@ import org.springframework.stereotype.Component;
 @Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
-	@Autowired
-	private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-	@Override
-	public Authentication authenticate(Authentication authentication)
-			throws AuthenticationException {
+    @Override
+    public Authentication authenticate(Authentication authentication)
+            throws AuthenticationException {
 
-		String username = authentication.getName();
-		String password = (String) authentication.getCredentials();
+        String username = authentication.getName();
+        String password = (String) authentication.getCredentials();
 
-		User user = userRepository.findByUser(username);
+        User user = userRepository.findByUser(username);
 
-		if (user == null) {
-			throw new BadCredentialsException("User not found");
-		}
-		if (!new BCryptPasswordEncoder().matches(password,
-				user.getPasswordHash())) {
-			throw new BadCredentialsException("Wrong password");
-		}
+        if (user == null) {
+            throw new BadCredentialsException("User not found");
+        }
+        if (!new BCryptPasswordEncoder().matches(password,
+                user.getPasswordHash())) {
+            throw new BadCredentialsException("Wrong password");
+        }
 
-		List<GrantedAuthority> roles = user.getRoles();
+        List<GrantedAuthority> roles = user.getRoles();
 
-		return new UsernamePasswordAuthenticationToken(username, password,
-				roles);
-	}
+        return new UsernamePasswordAuthenticationToken(username, password,
+                roles);
+    }
 
-	@Override
-	public boolean supports(Class<?> arg0) {
-		return true;
-	}
+    @Override
+    public boolean supports(Class<?> arg0) {
+        return true;
+    }
 }
