@@ -2,28 +2,34 @@ package io.github.web.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
 @Configuration
-@EnableWebMvcSecurity
+@EnableGlobalMethodSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // Authentication
-        // Path "/" is allowed, every other must be authenticated
-        http.authorizeRequests().antMatchers("/").permitAll().anyRequest()
-                .authenticated();
+        // Paths that can be visited without authentication
+        http.authorizeRequests().antMatchers("/").permitAll();
+        http.authorizeRequests().antMatchers("/login").permitAll();
+        http.authorizeRequests().antMatchers("/logout").permitAll();
+
+        // Paths that cannot be visited without authentication
+        http.authorizeRequests().anyRequest().authenticated();
 
         // Login form
-        http.formLogin().loginPage("/login").defaultSuccessUrl("/home")
-                .failureUrl("/login?error").permitAll();
+        http.formLogin().loginPage("/login");
+        http.formLogin().usernameParameter("username");
+        http.formLogin().passwordParameter("password");
+        http.formLogin().defaultSuccessUrl("/home");
+        http.formLogin().failureUrl("/login?error");
 
         // Logout
-        http.logout().logoutUrl("/logout").logoutSuccessUrl("/login?logout")
-                .permitAll();
+        http.logout().logoutUrl("/logout");
+        http.logout().logoutSuccessUrl("/login?logout");
     }
 
     @Override
