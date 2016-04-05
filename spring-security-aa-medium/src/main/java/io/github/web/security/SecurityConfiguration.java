@@ -10,30 +10,35 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		// Authentication
-		// Path "/" is allowed, every other must be authenticated
-		http.authorizeRequests().antMatchers("/").permitAll().anyRequest()
-				.authenticated();
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        // Paths that can be visited without authentication
+        http.authorizeRequests().antMatchers("/").permitAll();
+        http.authorizeRequests().antMatchers("/login").permitAll();
+        http.authorizeRequests().antMatchers("/logout").permitAll();
 
-		// Login form
-		http.formLogin().loginPage("/login").usernameParameter("username")
-				.passwordParameter("password").defaultSuccessUrl("/home")
-				.failureUrl("/login?error").permitAll();
+        // Paths that cannot be visited without authentication
+        http.authorizeRequests().anyRequest().authenticated();
 
-		// Logout
-		http.logout().logoutUrl("/logout").logoutSuccessUrl("/login?logout")
-				.permitAll();
-	}
+        // Login form
+        http.formLogin().loginPage("/login");
+        http.formLogin().usernameParameter("username");
+        http.formLogin().passwordParameter("password");
+        http.formLogin().defaultSuccessUrl("/home");
+        http.formLogin().failureUrl("/login?error");
 
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth)
-			throws Exception {
-		// Authorization
-		auth.inMemoryAuthentication().withUser("user").password("p1")
-				.roles("USER");
-		auth.inMemoryAuthentication().withUser("root").password("p2")
-				.roles("USER", "ADMIN");
-	}
+        // Logout
+        http.logout().logoutUrl("/logout");
+        http.logout().logoutSuccessUrl("/login?logout");
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth)
+            throws Exception {
+        // Authorization
+        auth.inMemoryAuthentication().withUser("user").password("p1")
+                .roles("USER");
+        auth.inMemoryAuthentication().withUser("root").password("p2")
+                .roles("USER", "ADMIN");
+    }
 }
