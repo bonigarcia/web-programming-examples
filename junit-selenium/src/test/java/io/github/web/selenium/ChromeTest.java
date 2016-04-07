@@ -42,7 +42,7 @@ public class ChromeTest {
 
         WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
         wait.until(ExpectedConditions.textToBePresentInElementLocated(
-                By.tagName("body"), "Computer software or simply software"));
+                By.tagName("body"), "Computer software"));
     }
 
 }
