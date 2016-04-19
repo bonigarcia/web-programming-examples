@@ -2,38 +2,32 @@
 <html>
 <head>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
 <script src="./app/app.js"></script>
 <script src="./app/controller.js"></script>
 </head>
 
-<body ng-app="app" ng-controller="Controller as vm">
+<body ng-app="app" ng-controller="Controller">
+    <h1>A checklist</h1>
+    <div ng-hide="items && items.length > 0">There are no items yet.</div>
+    <form ng-submit="addItem(newItem)">
 
-	<h1>A checklist</h1>
+        <div ng-repeat="item in items track by $index">
+            <label
+                style="text-decoration: {{item.checked? 'line-through': 'none'}}">
+                <input type="checkbox" ng-model="item.checked">
+                {{item.description}}
+            </label>
+            <button type="button" ng-click="deleteItem(item)">Delete</button>
+        </div>
 
-	<div ng-hide="vm.items && vm.items.length > 0">There are no items
-		yet.</div>
+        <hr>
 
-	<form ng-submit="vm.addItem(vm.newItem)">
+        <input type="text" ng-model="newItem"
+            placeholder="Enter the description...">
 
-		<div ng-repeat="item in vm.items track by $index">
+        <button type="submit" ng-disabled="!newItem">Add</button>
 
-			<label
-				style="text-decoration: {{item.checked? 'line-through': 'none'}}">
-				<input type="checkbox" ng-model="item.checked" />
-				{{item.description}}
-			</label>
-
-			<button type="button" ng-click="vm.deleteItem(item)">Delete</button>
-		</div>
-
-		<hr />
-
-		<input type="text" ng-model="vm.newItem"
-			placeholder="Enter the description..." />
-
-		<button type="submit" ng-disabled="!vm.newItem">Add</button>
-
-	</form>
+    </form>
 </body>
 </html>

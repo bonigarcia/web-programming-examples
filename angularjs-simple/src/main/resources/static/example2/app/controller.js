@@ -1,25 +1,21 @@
 angular.module("app").controller("Controller", Controller);
 
-function Controller() {
+function Controller($scope) {
 
-	var vm = this;
+    // View model properties
+    $scope.items = [];
+    $scope.newItem = "";
 
-	// View model properties
+    // Controller actions
+    $scope.addItem = function(description) {
+        $scope.items.push({
+            description : description,
+            checked : false
+        });
+        $scope.newItem = "";
+    };
 
-	vm.items = [];
-	vm.newItem = "";
-
-	// Controller actions
-
-	vm.addItem = function(description) {
-		vm.items.push({
-			description : description,
-			checked : false
-		});
-		vm.newItem = "";
-	};
-
-	vm.deleteItem = function(item) {
-		vm.items.splice(vm.items.indexOf(item), 1);
-	};
+    $scope.deleteItem = function(item) {
+        $scope.items.splice($scope.items.indexOf(item), 1);
+    };
 };
