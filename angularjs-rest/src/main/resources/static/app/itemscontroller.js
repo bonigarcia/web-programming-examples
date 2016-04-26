@@ -1,34 +1,29 @@
 angular.module("app").controller("ItemsController", ItemsController);
 
-ItemsController.$inject = [ "itemsService" ];
+ItemsController.$inject = [ "$scope", "itemsService" ];
 
-function ItemsController(itemsService) {
-	var vm = this;
+function ItemsController($scope, itemsService) {
+   // Properties
+   $scope.items = [];
+   $scope.newItem = "";
 
-	// View model properties
-	vm.items = [];
-	vm.newItem = "";
+   // Actions
+   $scope.items = itemsService.getItems();
 
-	// Controller logic
-	vm.items = itemsService.getItems();
+   $scope.addItem = function(description) {
+      itemsService.newItem({
+         description : description,
+         checked : false
+      });
 
-	// Controller actions
-	vm.addItem = function(description) {
+      $scope.newItem = "";
+   };
 
-		itemsService.newItem({
-			description : description,
-			checked : false
-		});
+   $scope.updateItem = function(item) {
+      itemsService.updateItem(item);
+   };
 
-		vm.newItem = "";
-	};
-
-	vm.updateItem = function(item) {
-		itemsService.updateItem(item);
-	};
-
-	vm.deleteItem = function(item) {
-		itemsService.deleteItem(item);
-	};
+   $scope.deleteItem = function(item) {
+      itemsService.deleteItem(item);
+   };
 };
-

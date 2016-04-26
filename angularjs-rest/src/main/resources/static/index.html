@@ -2,36 +2,36 @@
 <html>
 <head>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-resource.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-resource.js"></script>
 <script src="./app/app.js"></script>
 <script src="./app/itemsservice.js"></script>
 <script src="./app/itemscontroller.js"></script>
 </head>
 
-<body ng-app="app" ng-controller="ItemsController as vm">
+<body ng-app="app" ng-controller="ItemsController">
 
-	<h1>A checklist</h1>
-	<div ng-hide="vm.items && vm.items.length > 0">There are no items
-		yet.</div>
+   <h1>A checklist</h1>
+   <div ng-hide="items && items.length > 0">There are no items
+      yet.</div>
 
-	<form ng-submit="vm.addItem(vm.newItem)">
-		<div ng-repeat="item in vm.items">
+   <form ng-submit="addItem(newItem)">
+      <div ng-repeat="item in items">
 
-			<label
-				style="text-decoration: {{item.checked? 'line-through': 'none'">
-				<input type="checkbox" ng-model="item.checked"
-				ng-change="vm.updateItem(item)" /> {{item.description}}
-			</label>
+         <label
+            style="text-decoration: {{item.checked? 'line-through': 'none'}}">
+            <input type="checkbox" ng-model="item.checked"
+            ng-change="updateItem(item)" /> {{item.description}}
+         </label>
 
-			<button type="button" ng-click="vm.deleteItem(item)">Delete</button>
-		</div>
-		<hr />
-		<input type="text" ng-model="vm.newItem"
-			placeholder="Enter the description..." />
+         <button type="button" ng-click="deleteItem(item)">Delete</button>
+      </div>
+      <hr />
+      <input type="text" ng-model="newItem"
+         placeholder="Enter the description..." />
 
-		<button type="submit" ng-disabled="!vm.newItem">Add</button>
-	</form>
+      <button type="submit" ng-disabled="!newItem">Add</button>
+   </form>
 </body>
 </html>
