@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AngularJsMultiPageApp {
 
-    public static void main(String[] args) {
-        SpringApplication.run(AngularJsMultiPageApp.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(AngularJsMultiPageApp.class, args);
+	}
 }

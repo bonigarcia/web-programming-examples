@@ -1,18 +1,13 @@
 angular.module("app").controller("PostController", PostController);
 
-PostController.$inject = [ "blogService", "$routeParams" ];
+PostController.$inject = [ "blogService", "$routeParams", "$scope" ];
 
-function PostController(blogService, $routeParams) {
+function PostController(blogService, $routeParams, $scope) {
 
-	var vm = this;
+   // Properties
+   $scope.post = {};
 
-	// View model properties
-
-	vm.post = {};
-
-	// Controller logic
-
-	vm.post = blogService.getPost($routeParams.id);
+   // Actions
+   $scope.post = blogService.getPost($routeParams.id);
 
 };
-

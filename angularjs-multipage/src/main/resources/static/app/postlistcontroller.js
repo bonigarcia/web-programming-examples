@@ -1,28 +1,21 @@
 angular.module("app").controller("PostListController", PostListController);
 
-PostListController.$inject = [ "blogService", "$location" ];
+PostListController.$inject = [ "blogService", "$location", "$scope" ];
 
-function PostListController(blogService, $location) {
+function PostListController(blogService, $location, $scope) {
 
-	var vm = this;
+   // Properties
+   $scope.posts = [];
 
-	// View model properties
+   // Actions
+   $scope.posts = blogService.getPosts();
 
-	vm.posts = []
+   $scope.deletePost = function(post) {
+      blogService.deletePost(post);
+   };
 
-	// Controller logic
-
-	vm.posts = blogService.getPosts();
-
-	// Controller actions
-
-	vm.deletePost = function(post) {
-		blogService.deletePost(post);
-	};
-
-	vm.viewPost = function(post) {
-		$location.path("/post");
-	};
+   $scope.viewPost = function(post) {
+      $location.path("/post");
+   };
 
 };
-

@@ -1,24 +1,16 @@
 angular.module("app").controller("NewPostController", NewPostController);
 
-NewPostController.$inject = ["blogService", "$location"];
+NewPostController.$inject = [ "blogService", "$location", "$scope" ];
 
-function NewPostController(blogService, $location) {
+function NewPostController(blogService, $location, $scope) {
 
-	var vm = this;
-	
-	//View model properties
-	
-	vm.newPost = {};
-	
-	//Controller actions
+   // Properties
+   $scope.newPost = {};
 
-	vm.addPost = function(newPost) {
-		
-		blogService.newPost(newPost);
-		
-		vm.newPost = {};
-		
-		$location.path("/");
-	};
+   // Actions
+   $scope.addPost = function(newPost) {
+      blogService.newPost(newPost);
+      $scope.newPost = {};
+      $location.path("/");
+   };
 };
-
