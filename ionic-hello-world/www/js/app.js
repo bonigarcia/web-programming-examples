@@ -9,4 +9,17 @@ myApp.run(function($ionicPlatform) {
             StatusBar.styleDefault();
         }
     });
-})
+});
+
+myApp.config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider.state('home', {
+        url : '/home',
+        templateUrl : 'views/home/home.html'
+    }).state('reservation', {
+        url : '/reservation',
+        controller : 'ReservationController',
+        templateUrl : 'views/reservation/reservation.html'
+    });
+
+    $urlRouterProvider.otherwise('/home');
+});
