@@ -11,6 +11,22 @@
 	src: url(sansation_light.woff);
 }
 
+@media print {
+	html {
+		background-color: white;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	body {
+		background-color: lightblue;
+	}
+}
+
+@media (orientation : portrait) {
+	/* One or more CSS rules to apply when the query is satisfied */
+}
+
 p {
 	font-family: sansation;
 	color: #ff0000 !important;
