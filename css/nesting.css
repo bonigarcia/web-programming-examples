@@ -1,0 +1,9 @@
+/* Resulting CSS */
+.parent {
+	margin-top: 1rem;
+}
+
+.parent .child {
+	float: left;
+	background: blue;
+}
