@@ -1,0 +1,39 @@
+.container {
+	width: 900px;
+	margin: 0 auto;
+}
+
+.header {
+	float: left;
+	width: 100%;
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+
+.content {
+	float: left;
+	width: 100%;
+	position: relative;
+}
+
+.nav {
+	width: 100px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #eeeeee;
+}
+
+.main {
+	margin-left: 100px;
+	float: left;
+}
+
+.footer {
+	clear: both;
+	background-color: black;
+	color: white;
+	text-align: center;
+}
