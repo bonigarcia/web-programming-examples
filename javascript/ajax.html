@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>XMLHttpRequest example</h2>
+    <button type="button" id="mybutton">AJAX request</button>
+    <p id="content"></p>
+</body>
+
+<script>
+    var button = document.getElementById("mybutton");
+    button.addEventListener("click", function () {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("content").innerHTML += this.responseText + "<br>";
+            }
+        };
+        xhr.open("GET", "info.txt", true);
+        xhr.send();
+    });
+</script>
+
+</html>
