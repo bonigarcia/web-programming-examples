@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script>
-$(document).ready(function(){
-    $("button").click(function(){
-        $.ajax({url: "https://raw.githubusercontent.com/bonigarcia/web-programming-examples/master/jquery/lore.html", success: function(result){
-            $("#div1").html(result);
-        }});
-    });
-});
-</script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $.ajax({
+                    url: "lore.html",
+                    success: function (result) {
+                        $("#div1").html(result);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
+
 <body>
-	<div id="div1">
-		<h2>Let jQuery AJAX Change This Text</h2>
-	</div>
-	<button>Get External Content</button>
+    <div id="div1">
+        <h2>Let jQuery AJAX Change This Text</h2> </div>
+    <button>Get External Content</button>
 </body>
+
 </html>
-
-
