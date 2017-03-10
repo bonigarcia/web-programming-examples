@@ -7,8 +7,8 @@
         $(document).ready(function () {
             $("button").click(function () {
                 $.ajax({
-                    url: "lore.html"
-                    , success: function (result) {
+                    url: "lore.html",
+                    success: function (result) {
                         $("#div1").html(result);
                     }
                 });
