@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script>
-	$(function() {
-		$("#btn1").click(function() {
-			$("#test1").text("Hello world!");
-		});
-		$("#btn2").click(function() {
-			$("#test2").html("<b>Hello world!</b>");
-		});
-		$("#btn3").click(function() {
-			$("#test3").val("Donald Duck");
-		});
-	    $("#btn4").click(function(){
-	        $("#test4").attr("href", "http://www.w3schools.com/jquery");
-	    });
-	});
-</script>
-</head>
-<body>
-	<p id="test1">This is a paragraph.</p>
-	<p id="test2">This is another paragraph.</p>
-	<p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
-	<p><a href="http://jquery.com/" id="test4">This is a link</a></p>
 
-	<button id="btn1">Set Text</button>
-	<button id="btn2">Set HTML</button>
-	<button id="btn3">Set Value</button>
-	<button id="btn4">Change href Value</button>
+<head>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                $("#test1").text("Hello world!");
+            });
+            $("#btn2").click(function () {
+                $("#test2").html("<b>Hello world!</b>");
+            });
+            $("#btn3").click(function () {
+                $("#test3").val("Donald Duck");
+            });
+            $("#btn4").click(function () {
+                $("#test4").attr("href", "http://www.w3schools.com/jquery");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p id="test1">This is a paragraph.</p>
+    <p id="test2">This is another paragraph.</p>
+    <p>Input field:
+        <input type="text" id="test3" value="Mickey Mouse">
+    </p>
+    <p><a href="http://jquery.com/" id="test4">This is a link</a></p>
+    <button id="btn1">Set Text</button>
+    <button id="btn2">Set HTML</button>
+    <button id="btn3">Set Value</button>
+    <button id="btn4">Change href Value</button>
 </body>
+
 </html>

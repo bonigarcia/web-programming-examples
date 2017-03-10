@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script>
-	$(function() {
-		$("#btn1").click(function() {
-			$("p").append(" <b>Appended text</b>.");
-		});
-		$("#btn2").click(function() {
-			$("p").prepend("<b>Prepended text</b>. ");
-		});
-		$("#btn3").click(function() {
-			$("img").before("<b>Before</b>");
-		});
-		$("#btn4").click(function() {
-			$("img").after("<i>After</i>");
-		});
-	});
-</script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                $("p").append(" <b>Appended text</b>.");
+            });
+            $("#btn2").click(function () {
+                $("p").prepend("<b>Prepended text</b>. ");
+            });
+            $("#btn3").click(function () {
+                $("img").before("<b>Before</b>");
+            });
+            $("#btn4").click(function () {
+                $("img").after("<i>After</i>");
+            });
+        });
+    </script>
 </head>
+
 <body>
-	<p>This is paragraph 1.</p>
-	<img src="http://www.w3schools.com/images/w3jquery.gif" width="100"
-		height="140">
-	<br>
-	<button id="btn1">Append text</button>
-	<button id="btn2">Prepend text</button>
-	<button id="btn3">Insert before</button>
-	<button id="btn4">Insert after</button>
-
-
+    <p>This is paragraph 1.</p> <img src="http://www.w3schools.com/images/w3jquery.gif" width="100" height="140">
+    <br>
+    <button id="btn1">Append text</button>
+    <button id="btn2">Prepend text</button>
+    <button id="btn3">Insert before</button>
+    <button id="btn4">Insert after</button>
 </body>
+
 </html>
-
-

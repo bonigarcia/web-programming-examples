@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-<script>
-	$(function() {
-		$.get("demo_test.asp", function(data, status) {
-			alert("Data: " + data + "\nStatus: " + status);
-		});
-
-		$.post("demo_test_post.asp", {
-			name : "Donald Duck",
-			city : "Duckburg"
-		}, function(data, status) {
-			alert("Data: " + data + "\nStatus: " + status);
-		});
-	});
-</script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        $(function () {
+            $.get("demo_test.asp", function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+            $.post("demo_test_post.asp", {
+                name: "Donald Duck"
+                , city: "Duckburg"
+            }, function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+        });
+    </script>
 </head>
+
 <body>
-	<div id="div1">
-		<h2>Let jQuery AJAX Change This Text</h2>
-	</div>
-	<button>Get External Content</button>
+    <div id="div1">
+        <h2>Let jQuery AJAX Change This Text</h2> </div>
+    <button>Get External Content</button>
 </body>
+
 </html>
-
-
