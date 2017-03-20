@@ -9,13 +9,18 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class SessionController2 {
 
-    @Autowired
     private User user;
+
+    @Autowired
+    public SessionController2(User user) {
+        this.user = user;
+    }
 
     private String sharedInfo;
 
     @RequestMapping(value = "/processFormSession2")
     public ModelAndView processForm(@RequestParam String info) {
+        System.err.println(user);
         user.setInfo(info);
         sharedInfo = info;
         return new ModelAndView("info_session2");
