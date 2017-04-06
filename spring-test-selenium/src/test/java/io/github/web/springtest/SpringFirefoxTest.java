@@ -1,47 +1,35 @@
 package io.github.web.springtest;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameter;
-import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
-@RunWith(Parameterized.class)
-public class SpringParametrizedTest {
+public class SpringFirefoxTest {
 
 	private WebDriver driver;
 	private ConfigurableApplicationContext context;
 
-	@Parameter
-	public Class<? extends WebDriver> driverClass;
-
-	@Parameters(name = "{index}: {0}")
-	public static Collection<Object[]> data() {
-		return Arrays.asList(new Object[][] { { ChromeDriver.class },
-				{ FirefoxDriver.class } });
+	@BeforeClass
+	public static void setupClass() {
+		FirefoxDriverManager.getInstance().setup();
 	}
 
 	@Before
-	public void setup() throws Exception {
+	public void setupTest() {
 		context = SpringApplication.run(SpringTestDemoApp.class);
 
-		WebDriverManager.getInstance(driverClass).setup();
-		driver = driverClass.newInstance();
+		driver = new FirefoxDriver();
 	}
 
 	@After
@@ -56,7 +44,7 @@ public class SpringParametrizedTest {
 	}
 
 	@Test
-	public void test() {
+	public void test() throws InterruptedException {
 		// Always wait 30 seconds to locate elements
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 

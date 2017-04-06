@@ -7,24 +7,18 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = SpringTestDemoApp.class)
-@WebAppConfiguration
-public class SpringTest {
+public class SpringChromeTest {
 
-	private static final long TIMEOUT = 30; // seconds
 	private WebDriver driver;
+	private ConfigurableApplicationContext context;
 
 	@BeforeClass
 	public static void setupClass() {
@@ -33,6 +27,8 @@ public class SpringTest {
 
 	@Before
 	public void setupTest() {
+		context = SpringApplication.run(SpringTestDemoApp.class);
+
 		driver = new ChromeDriver();
 	}
 
@@ -41,27 +37,33 @@ public class SpringTest {
 		if (driver != null) {
 			driver.quit();
 		}
+
+		if (context != null) {
+			context.close();
+		}
 	}
 
 	@Test
 	public void test() {
-		// Always wait TIMEOUT seconds
-		driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
+		// Always wait 30 seconds to locate elements
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		// Open system under test
 		driver.get("http://localhost:8080/");
 
 		// Verify first page title
-		Assert.assertTrue(ExpectedConditions
-				.titleIs("Spring Boot Test - Page 1").apply(driver));
+		String firstPageTitle = driver.getTitle();
+		String expectedFirstPageTitle = "Spring Boot Test - Page 1";
+		Assert.assertEquals(expectedFirstPageTitle, firstPageTitle);
 
 		// Click on link
 		driver.findElement(By.linkText("another")).click();
 
-		// Verify second page text content
-		Assert.assertTrue(ExpectedConditions
-				.textToBePresentInElementLocated(By.tagName("body"), "Hello")
-				.apply(driver));
+		// Verify second page caption
+		String secondPageCaption = driver.findElement(By.id("caption"))
+				.getText();
+		String expectedSecondPageTitle = "Other page";
+		Assert.assertEquals(expectedSecondPageTitle, secondPageCaption);
 	}
 
 }
