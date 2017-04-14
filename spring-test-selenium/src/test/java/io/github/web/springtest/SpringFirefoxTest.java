@@ -7,18 +7,20 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = SpringTestDemoApp.class, webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class SpringFirefoxTest {
 
 	private WebDriver driver;
-	private ConfigurableApplicationContext context;
 
 	@BeforeClass
 	public static void setupClass() {
@@ -27,8 +29,6 @@ public class SpringFirefoxTest {
 
 	@Before
 	public void setupTest() {
-		context = SpringApplication.run(SpringTestDemoApp.class);
-
 		driver = new FirefoxDriver();
 	}
 
@@ -36,10 +36,6 @@ public class SpringFirefoxTest {
 	public void teardown() {
 		if (driver != null) {
 			driver.quit();
-		}
-
-		if (context != null) {
-			context.close();
 		}
 	}
 

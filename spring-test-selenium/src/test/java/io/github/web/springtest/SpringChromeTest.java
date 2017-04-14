@@ -7,18 +7,24 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.springframework.boot.SpringApplication;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.boot.context.embedded.LocalServerPort;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = SpringTestDemoApp.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class SpringChromeTest {
 
 	private WebDriver driver;
-	private ConfigurableApplicationContext context;
+
+	@LocalServerPort
+	protected int serverPort;
 
 	@BeforeClass
 	public static void setupClass() {
@@ -27,8 +33,6 @@ public class SpringChromeTest {
 
 	@Before
 	public void setupTest() {
-		context = SpringApplication.run(SpringTestDemoApp.class);
-
 		driver = new ChromeDriver();
 	}
 
@@ -36,10 +40,6 @@ public class SpringChromeTest {
 	public void teardown() {
 		if (driver != null) {
 			driver.quit();
-		}
-
-		if (context != null) {
-			context.close();
 		}
 	}
 
@@ -49,7 +49,7 @@ public class SpringChromeTest {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 		// Open system under test
-		driver.get("http://localhost:8080/");
+		driver.get("http://localhost:" + serverPort);
 
 		// Verify first page title
 		String firstPageTitle = driver.getTitle();
