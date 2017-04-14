@@ -2,6 +2,7 @@ package io.github.web.selenium;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,10 +10,17 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+
 public class FirefoxTest {
 
     private static final int TIMEOUT = 30; // seconds
     private WebDriver driver;
+
+    @BeforeClass
+    public static void setupClass() {
+        FirefoxDriverManager.getInstance().setup();
+    }
 
     @Before
     public void setup() {
