@@ -1,6 +1,14 @@
 {
    "name": "nodejs-hello-world",
    "version": "1.0.0",
+
+   "description": "Node.js simplest app ever",
+   "license": "Apache-2.0",
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/bonigarcia/webdrivermanager-examples.git"
+   },
+
    "dependencies": {
       "express": "^4.15.0"
    }
