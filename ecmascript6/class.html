@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+</body>
+
+<script>
+
+class Person {
+   constructor(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+   }
+
+   name() {
+      return `${this.firstName} ${this.lastName}`;
+   }
+
+   whoAreYou() {
+      return `Hi I'm ${this.name()}`;
+   }
+}
+
+let john = new Person("John", "Doe");
+console.log(john.whoAreYou());
+
+
+class Student extends Person {
+
+   constructor(firstName, lastName, course) {
+      super(firstName, lastName);
+      this.course = course;
+   }
+
+   whoAreYou() {
+      return `${super.whoAreYou()} and I'm studying ${this.course}`;
+   }
+}
+
+let michael = new Student("Michael", "Smith", "Web programming");
+console.log(michael.whoAreYou());
+
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+</body>
+
+<script>
+
+let error = false;
+let myPromise = new Promise((resolve, reject) => {
+   setTimeout(function() {
+      if (error) 
+         reject("Failure!");
+      else
+         resolve("Sucess!");
+   }, 1000);
+});
+
+myPromise.then((successMessage) => {
+   console.log("The sucess message is: " + successMessage);
+});
+
+myPromise.catch((errorMessage) => {
+   console.log("The error message is: " + errorMessage);
+});
+
+</script>
+
+</html>
