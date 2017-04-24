@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'ngfor-example',
-    templateUrl: './ngfor.html'
-    })
+    templateUrl: '../views/ngfor.html'
+})
 export class NgFor {
     people: any[] = [
         {

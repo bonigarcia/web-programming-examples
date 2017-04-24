@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'ngif-example',
-    templateUrl: './ngif.html'
+    templateUrl: '../views/ngif.html'
 })
 export class NgIf {
     people: any[] = [

@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoot } from './app.root';
-import { NgFor } from './ngfor';
-import { NgIf } from './ngif';
-import { NgSwitch } from './ngswitch';
+import { AppRoot } from './components/app.root';
+import { NgFor } from './components/ngfor';
+import { NgIf } from './components/ngif';
+import { NgSwitch } from './components/ngswitch';
 
 @NgModule({
     imports: [BrowserModule],

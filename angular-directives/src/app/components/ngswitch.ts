@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'ngswitch-example',
-    templateUrl: './ngswitch.html',
-    styleUrls: ['./ngswitch.css']
-    
+    templateUrl: '../views/ngswitch.html',
+    styleUrls: ['../styles/ngswitch.css']
+
 })
 export class NgSwitch {
     people: any[] = [
