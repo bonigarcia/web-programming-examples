@@ -1,0 +1,10 @@
+<h3>NgIf example</h3>
+
+<!-- <ng-container> is a logical container that can be used to group nodes but is not rendered in the DOM tree  -->
+<!-- Two *ng at the same element: ERROR Can't have multiple template bindings on one element -->
+
+<ul>
+	<ng-container *ngFor="let person of people">
+	<li *ngIf="person.age < 30">{{ person.name }} ({{ person.age }})</li>
+	</ng-container>
+</ul>
