@@ -11,7 +11,7 @@ import { routing }  from './app.routing';
 
 @NgModule({
     declarations: [AppComponent, BookDetailComponent, BookListComponent],
-    imports: [BrowserModule, FormsModule, HttpModule, JsonpModule, routing],
+    imports: [BrowserModule, FormsModule, HttpModule, routing],
     bootstrap: [AppComponent],
     providers: [BookService]
 })
