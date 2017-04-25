@@ -1,6 +1,9 @@
 <h1>Search Books (from www.googleapis.com/books)</h1>
 
 <input #title type="text">
-<button (click)="search(title.value); title.value=''">Buscar</button>
+
+<button (click)="search(title.value); title.value=''">Search (logic in the controller)</button>
+
+<button (click)="seek(title.value); title.value=''">Search (logic in a service)</button>
 
 <p *ngFor="let book of books">{{book}}</p>
