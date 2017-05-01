@@ -22,7 +22,7 @@ export class BookService {
         return this.books;
     }
 
-    getBook(id: number | string) {
-        return this.books.find(book => book.id === +id);
+    getBook(id: number) {
+        return this.books.find(book => book.id == id);
     }
 }
