@@ -1,7 +1,7 @@
-# Web Programming Examples [![][Logo]][GitHub Repository]
-
 [![License badge](https://img.shields.io/badge/license-Apache2-green.svg)](http://www.apache.org/licenses/LICENSE-2.0)
-[![Twitter Follow](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/boni_gg)
+[![Twitter](https://img.shields.io/badge/follow-@boni_gg-green.svg)](https://twitter.com/boni_gg)
+
+# Web Programming Examples [![][Logo]][GitHub Repository]
 
 This project contains code examples for web applications using Java in the server-side.
 
