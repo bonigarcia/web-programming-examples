@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Validate form</title>
+</head>
+
+<script>
+window.onload = function() {
+   var form = document.getElementById("myForm");
+   form.addEventListener("submit", function(event) {
+      var txt = document.getElementById("txt");
+      if (!txt.value) {
+         alert("You should provide some value to text input");
+         txt.focus();
+         return event.preventDefault();
+      }
+   });
+}
+</script>
+
+<body>
+   <form id="myForm" action="/processForm" method="post">
+      <input type="text" name="txt" id="txt">
+      <input type="submit">
+   </form>
+</body>
+
+</html>
