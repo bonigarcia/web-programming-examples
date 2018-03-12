@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script>
+   // Write cookie
+   Cookies.set("my_cookie", "new_value");
+
+   // Read cookie
+   var cookie = Cookies.get("my_cookie");
+   console.log(cookie);
+
+   // Delete cookie
+   Cookies.remove("my_cookie");
+   cookie = Cookies.get("my_cookie");
+   console.log(cookie);
+</script>
+</head>
+
+<body>
+	<h1>Using cookies...</h1>
+</body>
+
+</html>
