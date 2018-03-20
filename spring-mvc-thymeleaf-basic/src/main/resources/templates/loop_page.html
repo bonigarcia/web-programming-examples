@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h1>Iteration page</h1>
+    <ul>
+        <li th:each="color : ${colors}" th:text="${color}">Color</li>
+    </ul>
+
+    <p>Colors in table:</p>
+    <table border="1">
+        <tr th:each="color, it : ${colors}">
+            <td th:text="${it.index}"></td>
+            <td th:text="${color}">Color</td>
+        </tr>
+    </table>
+</body>
+</html>

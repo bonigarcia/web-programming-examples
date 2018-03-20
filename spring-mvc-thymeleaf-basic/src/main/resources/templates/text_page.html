@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h1>Text page</h1>
+    <p th:text="${greetings}"></p>
+    <p th:text="${myobj.name}"></p>
+    <p th:text="${myobj.sayHello()}"></p>
+    <p th:text="|I say: ${myobj.description}!|"></p>
+</body>
+</html>
