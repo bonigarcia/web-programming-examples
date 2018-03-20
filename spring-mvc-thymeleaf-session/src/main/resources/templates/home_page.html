@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h1>Home page</h1>
+    <form th:action="@{processFormSession}" method="post">
+        <label>Input</label><br>
+        <input type="text" name="info"><br>
+        <input type="submit">
+    </form>
+</html>
