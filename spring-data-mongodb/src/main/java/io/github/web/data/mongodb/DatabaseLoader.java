@@ -31,7 +31,7 @@ public class DatabaseLoader {
 
         // Delete
         String firstId = repository.findAll().iterator().next().getId();
-        repository.delete(firstId);
+        repository.deleteById(firstId);
         System.out.println(repository.count());
     }
 }
