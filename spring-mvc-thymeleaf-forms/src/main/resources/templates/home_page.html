@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <body>
     <h1>Home page</h1>
 
     <h2>Form 1</h2>
-    <form th:action="@{processForm1}" method="post">
+    <form data-th-action="@{processForm1}" method="post">
         <label>One input fields</label><br>
         <input type="text" name="input"><br>
         <input type="submit">
     </form>
 
     <h2>Form 2</h2>
-    <form th:action="@{processForm2}" method="post">
+    <form data-th-action="@{processForm2}" method="post">
         <label>Several input fields</label><br>
         <input type="text" name="info1"><br>
         <input type="text" name="info2"><br>

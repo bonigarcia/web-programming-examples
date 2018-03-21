@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <body>
     <h1>Conditional page</h1>
-    <p th:if="${visible}">Paragraph #1 is visible!</p>
-    <p th:if="${not hidden}">Paragraph #2 is also visible!</p>
+    <p data-th-if="${visible}">Paragraph #1 is visible!</p>
+    <p data-th-if="${not hidden}">Paragraph #2 is also visible!</p>
 </body>
 </html>
