@@ -7,11 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MyController {
 
-    @RequestMapping(value = "/")
-    public ModelAndView index() {
-        return new ModelAndView("home");
-    }
-
     @RequestMapping(value = "/page1")
     public ModelAndView layout1() {
         return new ModelAndView("page1");
