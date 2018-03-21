@@ -14,7 +14,7 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 @SpringBootApplication
-public class SpringMvcI18nApp implements WebMvcConfigurer {
+public class MySpringBootApp implements WebMvcConfigurer {
 
     @Bean
     public MessageSource messageSource() {
@@ -43,6 +43,6 @@ public class SpringMvcI18nApp implements WebMvcConfigurer {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringMvcI18nApp.class, args);
+        SpringApplication.run(MySpringBootApp.class, args);
     }
 }
