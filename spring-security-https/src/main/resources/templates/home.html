@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 <title>Home</title>
 </head>
 <body>
-	<h1>Hello Spring Security!</h1>
-	<form th:action="@{/logout}" method="post">
-		<input type="submit" value="Sign Out" />
-	</form>
+    <h1>Hello Spring Security!</h1>
+    <form data-th-action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out">
+    </form>
 </body>
 </html>

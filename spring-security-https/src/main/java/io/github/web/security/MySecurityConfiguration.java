@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableGlobalMethodSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class MySecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -36,7 +36,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
         // Authorization
-        auth.inMemoryAuthentication().withUser("user").password("p1")
+        auth.inMemoryAuthentication().withUser("user").password("{noop}p1")
                 .roles("USER");
     }
 
