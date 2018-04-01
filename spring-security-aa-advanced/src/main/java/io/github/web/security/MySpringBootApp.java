@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MediumSecurityApp {
+public class MySpringBootApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MediumSecurityApp.class, args);
+		SpringApplication.run(MySpringBootApp.class, args);
 	}
 }

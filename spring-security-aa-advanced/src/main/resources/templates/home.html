@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html>
 <head>
 <title>Home</title>
 </head>
 <body>
     <h1>
-        Hello <span sec:authentication="name">user</span>
+        Hello <span data-sec-authentication="name"></span>
     </h1>
-
-    <div sec:authorize="hasRole('ROLE_ADMIN')">
-        <a th:href="@{/root}">Administration page</a>
+    <div data-sec-authorize="hasRole('ROLE_ADMIN')">
+        <a data-th-href="@{/root}">Administration page</a>
     </div>
-
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out" />
+    <form data-th-action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out">
     </form>
 </body>
 </html>
