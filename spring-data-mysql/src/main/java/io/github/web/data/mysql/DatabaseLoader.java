@@ -24,10 +24,10 @@ public class DatabaseLoader {
         repository.save(new Customer("Michael", "Smith"));
 
         // Update
-        Customer firstCustomet = repository.findAll().iterator().next();
-        firstCustomet.setFirstName("Peter");
-        log.info("Updating {}", firstCustomet);
-        repository.save(firstCustomet);
+        Customer firstCustomer = repository.findAll().iterator().next();
+        firstCustomer.setFirstName("Peter");
+        log.info("Updating {}", firstCustomer);
+        repository.save(firstCustomer);
 
         // Read
         Iterable<Customer> all = repository.findAll();
