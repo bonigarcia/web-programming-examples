@@ -21,25 +21,44 @@ public class MyRestController {
     private MyService teamsService;
 
     @RequestMapping(value = "/teams", method = RequestMethod.GET)
-    public List<Team> getTeams() {
-        return teamsService.getTeams();
+    public ResponseEntity<List<Team>> getTeams() {
+        List<Team> teams = teamsService.getTeams();
+
+        HttpStatus status = HttpStatus.OK;
+        ResponseEntity<List<Team>> response = new ResponseEntity<>(teams,
+                status);
+        return response;
     }
 
     @RequestMapping(value = "/team", method = RequestMethod.GET)
-    public Team getTeamByQuery(@RequestParam("index") int index) {
-        return teamsService.getTeam(index);
+    public ResponseEntity<Team> getTeamByQuery(
+            @RequestParam("index") int index) {
+        return getTeam(index);
     }
 
     @RequestMapping(value = "/team/{index}", method = RequestMethod.GET)
-    public Team getTeamByPath(@PathVariable("index") int index) {
-        return teamsService.getTeam(index);
+    public ResponseEntity<Team> getTeamByPath(
+            @PathVariable("index") int index) {
+        return getTeam(index);
     }
 
     @RequestMapping(value = "/teams", method = RequestMethod.POST)
     public ResponseEntity<Integer> addTeam(@RequestBody Team team) {
         teamsService.addTeam(team);
-        return new ResponseEntity<Integer>(teamsService.size(),
-                HttpStatus.CREATED);
+        int teamSize = teamsService.size();
+
+        HttpStatus status = HttpStatus.CREATED;
+        ResponseEntity<Integer> response = new ResponseEntity<>(teamSize,
+                status);
+        return response;
+    }
+
+    private ResponseEntity<Team> getTeam(int index) {
+        Team team = teamsService.getTeam(index);
+
+        HttpStatus status = HttpStatus.OK;
+        ResponseEntity<Team> response = new ResponseEntity<>(team, status);
+        return response;
     }
 
 }
