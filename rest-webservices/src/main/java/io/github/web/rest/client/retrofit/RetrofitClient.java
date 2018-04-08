@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import io.github.web.rest.service.Player;
 import io.github.web.rest.service.Team;
-import okhttp3.ResponseBody;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -30,17 +29,17 @@ public class RetrofitClient {
         Response<Team> getResponse = teamsClient.getTeamByPath(0).execute();
         int getResponseCode = getResponse.code();
         Team getResponseBody = getResponse.body();
-        log.info("GET response: {} {}", getResponseCode, getResponseBody);
+        log.info("GET response: {} -- {}", getResponseCode, getResponseBody);
 
         // POST
         List<Player> players = new ArrayList<>();
         players.add(new Player("M.A.", "Barracus"));
         players.add(new Player("Murdock", "Crazy"));
         Team aTeam = new Team("A Team", players);
-        Response<ResponseBody> postResponse = teamsClient.addTeam(aTeam)
-                .execute();
+        Response<Integer> postResponse = teamsClient.addTeam(aTeam).execute();
         int postResponseCode = postResponse.code();
-        log.info("POST response: code {}", postResponseCode);
+        int postResponseBody = postResponse.body();
+        log.info("POST response: {} -- {}", postResponseCode, postResponseBody);
     }
 
 }

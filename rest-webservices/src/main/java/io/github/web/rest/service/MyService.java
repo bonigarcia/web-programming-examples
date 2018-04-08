@@ -43,4 +43,8 @@ public class MyService {
         teams.add(team);
     }
 
+    public int size() {
+        return teams.size();
+    }
+
 }

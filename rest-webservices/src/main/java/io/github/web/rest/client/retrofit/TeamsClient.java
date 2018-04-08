@@ -3,7 +3,6 @@ package io.github.web.rest.client.retrofit;
 import java.util.List;
 
 import io.github.web.rest.service.Team;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -23,6 +22,6 @@ public interface TeamsClient {
     Call<Team> getTeamByQuery(@Query("index") int index);
 
     @POST("/teams")
-    Call<ResponseBody> addTeam(@Body Team team);
+    Call<Integer> addTeam(@Body Team team);
 
 }

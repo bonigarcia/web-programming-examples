@@ -36,9 +36,10 @@ public class MyRestController {
     }
 
     @RequestMapping(value = "/teams", method = RequestMethod.POST)
-    public ResponseEntity<Boolean> addTeam(@RequestBody Team team) {
+    public ResponseEntity<Integer> addTeam(@RequestBody Team team) {
         teamsService.addTeam(team);
-        return new ResponseEntity<Boolean>(HttpStatus.CREATED);
+        return new ResponseEntity<Integer>(teamsService.size(),
+                HttpStatus.CREATED);
     }
 
 }
