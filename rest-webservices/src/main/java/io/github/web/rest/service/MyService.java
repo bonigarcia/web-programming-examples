@@ -6,11 +6,11 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TeamsService {
+public class MyService {
 
     private List<Team> teams;
 
-    public TeamsService() {
+    public MyService() {
         teams = new ArrayList<>();
         Player p1 = new Player("Player 1", "p1");
         Player p2 = new Player("Player 2", "p2");
