@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
@@ -24,15 +25,20 @@ public class MyRestController {
         return teamsService.getTeams();
     }
 
+    @RequestMapping(value = "/team", method = RequestMethod.GET)
+    public Team getTeamByQuery(@RequestParam("index") int index) {
+        return teamsService.getTeam(index);
+    }
+
     @RequestMapping(value = "/team/{index}", method = RequestMethod.GET)
-    public Team getTeam(@PathVariable("index") int index) {
+    public Team getTeamByPath(@PathVariable("index") int index) {
         return teamsService.getTeam(index);
     }
 
     @RequestMapping(value = "/teams", method = RequestMethod.POST)
     public ResponseEntity<Boolean> addTeam(@RequestBody Team team) {
         teamsService.addTeam(team);
-        return new ResponseEntity<Boolean>(true, HttpStatus.CREATED);
+        return new ResponseEntity<Boolean>(HttpStatus.CREATED);
     }
 
 }
