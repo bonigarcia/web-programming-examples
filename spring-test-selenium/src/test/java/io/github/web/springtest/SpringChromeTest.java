@@ -1,9 +1,8 @@
 package io.github.web.springtest;
 
-import java.util.concurrent.TimeUnit;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringTestDemoApp.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -28,7 +27,7 @@ public class SpringChromeTest {
 
     @BeforeClass
     public static void setupClass() {
-        ChromeDriverManager.getInstance().setup();
+        WebDriverManager.chromedriver().setup();
     }
 
     @Before
@@ -45,16 +44,13 @@ public class SpringChromeTest {
 
     @Test
     public void test() {
-        // Always wait 30 seconds to locate elements
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
         // Open system under test
         driver.get("http://localhost:" + serverPort);
 
         // Verify first page title
         String firstPageTitle = driver.getTitle();
         String expectedFirstPageTitle = "Spring Boot Test - Page 1";
-        Assert.assertEquals(expectedFirstPageTitle, firstPageTitle);
+        assertEquals(expectedFirstPageTitle, firstPageTitle);
 
         // Click on link
         driver.findElement(By.linkText("another")).click();
@@ -63,7 +59,7 @@ public class SpringChromeTest {
         String secondPageCaption = driver.findElement(By.id("caption"))
                 .getText();
         String expectedSecondPageTitle = "Other page";
-        Assert.assertEquals(expectedSecondPageTitle, secondPageCaption);
+        assertEquals(expectedSecondPageTitle, secondPageCaption);
     }
 
 }

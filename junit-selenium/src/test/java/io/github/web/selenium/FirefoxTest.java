@@ -1,5 +1,7 @@
 package io.github.web.selenium;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -7,19 +9,16 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class FirefoxTest {
 
-    private static final int TIMEOUT = 30; // seconds
     private WebDriver driver;
 
     @BeforeClass
     public static void setupClass() {
-        FirefoxDriverManager.getInstance().setup();
+        WebDriverManager.firefoxdriver().setup();
     }
 
     @Before
@@ -38,9 +37,9 @@ public class FirefoxTest {
         driver.findElement(By.id("searchInput")).sendKeys("Software");
         driver.findElement(By.id("searchButton")).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(
-                By.tagName("body"), "Computer software"));
+        boolean containsText = driver.findElement(By.tagName("body")).getText()
+                .contains("Computer software");
+        assertTrue(containsText);
     }
 
 }

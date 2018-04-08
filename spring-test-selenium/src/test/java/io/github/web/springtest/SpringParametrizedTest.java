@@ -1,11 +1,11 @@
 package io.github.web.springtest;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,58 +24,55 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 @RunWith(Parameterized.class)
 public class SpringParametrizedTest {
 
-	private WebDriver driver;
-	private ConfigurableApplicationContext context;
+    private WebDriver driver;
+    private ConfigurableApplicationContext context;
 
-	@Parameter
-	public Class<? extends WebDriver> driverClass;
+    @Parameter
+    public Class<? extends WebDriver> driverClass;
 
-	@Parameters(name = "{index}: {0}")
-	public static Collection<Object[]> data() {
-		return Arrays.asList(new Object[][] { { ChromeDriver.class },
-				{ FirefoxDriver.class } });
-	}
+    @Parameters(name = "{index}: {0}")
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][] { { ChromeDriver.class },
+                { FirefoxDriver.class } });
+    }
 
-	@Before
-	public void setup() throws Exception {
-		context = SpringApplication.run(SpringTestDemoApp.class);
+    @Before
+    public void setup() throws Exception {
+        context = SpringApplication.run(SpringTestDemoApp.class);
 
-		WebDriverManager.getInstance(driverClass).setup();
-		driver = driverClass.newInstance();
-	}
+        WebDriverManager.getInstance(driverClass).setup();
+        driver = driverClass.newInstance();
+    }
 
-	@After
-	public void teardown() {
-		if (driver != null) {
-			driver.quit();
-		}
+    @After
+    public void teardown() {
+        if (driver != null) {
+            driver.quit();
+        }
 
-		if (context != null) {
-			context.close();
-		}
-	}
+        if (context != null) {
+            context.close();
+        }
+    }
 
-	@Test
-	public void test() {
-		// Always wait 30 seconds to locate elements
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    @Test
+    public void test() {
+        // Open system under test
+        driver.get("http://localhost:8080/");
 
-		// Open system under test
-		driver.get("http://localhost:8080/");
+        // Verify first page title
+        String firstPageTitle = driver.getTitle();
+        String expectedFirstPageTitle = "Spring Boot Test - Page 1";
+        assertEquals(expectedFirstPageTitle, firstPageTitle);
 
-		// Verify first page title
-		String firstPageTitle = driver.getTitle();
-		String expectedFirstPageTitle = "Spring Boot Test - Page 1";
-		Assert.assertEquals(expectedFirstPageTitle, firstPageTitle);
+        // Click on link
+        driver.findElement(By.linkText("another")).click();
 
-		// Click on link
-		driver.findElement(By.linkText("another")).click();
-
-		// Verify second page caption
-		String secondPageCaption = driver.findElement(By.id("caption"))
-				.getText();
-		String expectedSecondPageTitle = "Other page";
-		Assert.assertEquals(expectedSecondPageTitle, secondPageCaption);
-	}
+        // Verify second page caption
+        String secondPageCaption = driver.findElement(By.id("caption"))
+                .getText();
+        String expectedSecondPageTitle = "Other page";
+        assertEquals(expectedSecondPageTitle, secondPageCaption);
+    }
 
 }

@@ -1,6 +1,6 @@
 package io.github.web.selenium;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,17 +9,16 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ChromeTest {
 
-    private static final int TIMEOUT = 30; // seconds
     private WebDriver driver;
 
     @BeforeClass
     public static void setupClass() {
-        ChromeDriverManager.getInstance().setup();
+        WebDriverManager.chromedriver().setup();
     }
 
     @Before
@@ -40,9 +39,9 @@ public class ChromeTest {
         driver.findElement(By.id("searchInput")).sendKeys("Software");
         driver.findElement(By.id("searchButton")).click();
 
-        WebDriverWait wait = new WebDriverWait(driver, TIMEOUT);
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(
-                By.tagName("body"), "Computer software"));
+        boolean containsText = driver.findElement(By.tagName("body")).getText()
+                .contains("Computer software");
+        assertTrue(containsText);
     }
 
 }
