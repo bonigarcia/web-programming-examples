@@ -1,40 +1,19 @@
 package io.github.web.selenium;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.SeleniumExtension;
 
+@ExtendWith(SeleniumExtension.class)
 public class ChromeTest {
 
-    private WebDriver driver;
-
-    @BeforeClass
-    public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-    }
-
-    @Before
-    public void setupTest() {
-        driver = new ChromeDriver();
-    }
-
-    @After
-    public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
-
     @Test
-    public void testChrome() {
+    void testChrome(ChromeDriver driver) {
         driver.get("http://en.wikipedia.org/wiki/Main_Page");
         driver.findElement(By.id("searchInput")).sendKeys("Software");
         driver.findElement(By.id("searchButton")).click();

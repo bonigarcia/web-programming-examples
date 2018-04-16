@@ -1,21 +1,22 @@
 package io.github.web.junit;
 
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class ArrayListTest {
+class ArrayListTest {
 
-    private List<String> list;
-    private final String[] data = { "data1", "data2", "data3" };
+    List<String> list;
+    final String[] data = { "data1", "data2", "data3" };
 
-    @Before
-    public void setupTest() {
+    @BeforeEach
+    void setupTest() {
         list = new ArrayList<String>();
         for (String s : data) {
             list.add(s);
@@ -23,34 +24,29 @@ public class ArrayListTest {
     }
 
     @Test
-    public void testContet() {
+    void testContet() {
         for (int i = 0; i < data.length; i++) {
             // Exercise
             String expectedContent = data[i];
             String realContent = list.get(i);
 
             // Verify
-            Assert.assertEquals(
-                    "Element at position " + i + " should be " + expectedContent
-                            + " and is " + realContent,
-                    expectedContent, realContent);
+            assertEquals(expectedContent, realContent);
         }
     }
 
     @Test
-    public void testSize() {
+    void testSize() {
         // Exercise
         int expectedSize = data.length;
         int realSize = list.size();
 
         // Verify
-        Assert.assertTrue(
-                "List size should be " + expectedSize + " and is " + realSize,
-                realSize == expectedSize);
+        assertTrue(realSize == expectedSize);
     }
 
-    @After
-    public void teardownTest() {
+    @AfterEach
+    void teardownTest() {
         list.clear();
     }
 }

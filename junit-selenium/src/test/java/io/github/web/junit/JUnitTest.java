@@ -1,20 +1,26 @@
 package io.github.web.junit;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class JUnitTest {
 
-    @BeforeClass
-    public static void setupClass() {
+    @BeforeAll
+    static void setupClass() {
         // Initialization per test case
     }
 
-    @Before
+    @BeforeEach
     public void setupTest() {
         // Initialization per test
     }
@@ -34,24 +40,24 @@ public class JUnitTest {
         Object[] array1 = {};
         Object[] array2 = {};
 
-        Assert.assertTrue("The condition is not met", booleanCondition);
-        Assert.assertFalse("The condition is met", booleanCondition);
+        assertTrue(booleanCondition, "The condition is not met");
+        assertFalse(booleanCondition, "The condition is met");
 
-        Assert.assertArrayEquals("The array is not equal", array1, array2);
+        assertArrayEquals(array1, array2, "The array is not equal");
 
-        Assert.assertNull("The object is null", object1);
-        Assert.assertNotNull("The object is not null", object2);
+        assertNull(object1, "The object is null");
+        assertNotNull(object2, "The object is not null");
 
-        Assert.fail("Test failure");
+        fail("Test failure");
     }
 
-    @After
-    public void teardownTest() {
+    @AfterEach
+    void teardownTest() {
         // Finish per test
     }
 
-    @AfterClass
-    public static void teardownClass() {
+    @AfterAll
+    static void teardownClass() {
         // Finish per test
     }
 
