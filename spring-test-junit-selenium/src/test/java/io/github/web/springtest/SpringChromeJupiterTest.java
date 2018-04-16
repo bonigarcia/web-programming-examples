@@ -14,7 +14,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import io.github.bonigarcia.SeleniumExtension;
 
 @ExtendWith({ SeleniumExtension.class, SpringExtension.class })
-@SpringBootTest(classes = SpringTestDemoApp.class, webEnvironment = RANDOM_PORT)
+@SpringBootTest(webEnvironment = RANDOM_PORT)
 public class SpringChromeJupiterTest {
 
     @LocalServerPort
