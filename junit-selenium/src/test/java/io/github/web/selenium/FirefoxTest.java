@@ -12,7 +12,7 @@ import io.github.bonigarcia.SeleniumExtension;
 public class FirefoxTest {
 
     @Test
-    public void testFirefox(FirefoxDriver driver) {
+    void testFirefox(FirefoxDriver driver) {
         driver.get("https://bonigarcia.github.io/selenium-jupiter/");
         assertTrue(
                 driver.getTitle().contains("JUnit 5 extension for Selenium"));

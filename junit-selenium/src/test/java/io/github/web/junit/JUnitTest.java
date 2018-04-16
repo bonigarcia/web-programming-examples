@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -21,7 +20,7 @@ public class JUnitTest {
     }
 
     @BeforeEach
-    public void setupTest() {
+    void setupTest() {
         // Initialization per test
     }
 
@@ -31,7 +30,7 @@ public class JUnitTest {
     }
 
     @Test
-    public void test2() {
+    void test2() {
         // Exercise and verify
 
         boolean booleanCondition = true;
@@ -40,15 +39,13 @@ public class JUnitTest {
         Object[] array1 = {};
         Object[] array2 = {};
 
-        assertTrue(booleanCondition, "The condition is not met");
-        assertFalse(booleanCondition, "The condition is met");
+        assertTrue(booleanCondition);
+        assertFalse(!booleanCondition);
 
-        assertArrayEquals(array1, array2, "The array is not equal");
+        assertArrayEquals(array1, array2);
 
-        assertNull(object1, "The object is null");
-        assertNotNull(object2, "The object is not null");
-
-        fail("Test failure");
+        assertNull(object1);
+        assertNotNull(object2);
     }
 
     @AfterEach
