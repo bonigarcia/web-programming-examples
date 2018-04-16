@@ -15,17 +15,17 @@ import org.junit.jupiter.api.Test;
 public class JUnitTest {
 
     @BeforeAll
-    static void setupClass() {
-        // Initialization per test case
+    static void setupAll() {
+        // Setup all tests
     }
 
     @BeforeEach
-    void setupTest() {
-        // Initialization per test
+    void setup() {
+        // Setup each test
     }
 
     @Test
-    public void test1() {
+    void test1() {
         // Exercise and verify
     }
 
@@ -49,13 +49,13 @@ public class JUnitTest {
     }
 
     @AfterEach
-    void teardownTest() {
-        // Finish per test
+    void teardown() {
+        // teardown each test
     }
 
     @AfterAll
-    static void teardownClass() {
-        // Finish per test
+    static void teardownAll() {
+        // teardown all tests
     }
 
 }

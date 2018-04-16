@@ -16,7 +16,7 @@ class ArrayListTest {
     final String[] data = { "data1", "data2", "data3" };
 
     @BeforeEach
-    void setupTest() {
+    void setup() {
         list = new ArrayList<String>();
         for (String s : data) {
             list.add(s);
@@ -24,7 +24,7 @@ class ArrayListTest {
     }
 
     @Test
-    void testContet() {
+    void testContent() {
         for (int i = 0; i < data.length; i++) {
             // Exercise
             String expectedContent = data[i];
@@ -46,7 +46,7 @@ class ArrayListTest {
     }
 
     @AfterEach
-    void teardownTest() {
+    void teardown() {
         list.clear();
     }
 }
