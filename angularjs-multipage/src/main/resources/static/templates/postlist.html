@@ -1,8 +1,0 @@
-<div ng-controller="PostListController">
-   <a href="#/newpost">New Post</a>
-
-   <div ng-repeat="post in posts">
-      <a href="/#/post/{{post.id}}">{{post.title}} ({{post.name}})</a>
-      <button type="button" ng-click="deletePost(post)">Delete</button>
-   </div>
-</div>
