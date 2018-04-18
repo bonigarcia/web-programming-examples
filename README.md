@@ -24,7 +24,7 @@ The main technologies involved in these examples are:
 
 ## About
 
-This is a project made by [Boni Garcia], Professor at [U-tad] and [Universidad Rey Juan Carlos]. Copyright &copy; 2017.
+This is a project made by [Boni Garcia], Assistant Professor at [U-tad] and [Universidad Rey Juan Carlos]. Copyright &copy; 2015-2018.
 
 [U-tad]: http://www.u-tad.com/
 [Universidad Rey Juan Carlos]: https://www.urjc.es/
