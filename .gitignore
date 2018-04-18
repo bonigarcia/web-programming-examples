@@ -4,3 +4,4 @@ target
 .project
 .settings
 .metadata
+node_modules/
