@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 
 import { BooksService } from './books.service';
 
@@ -10,12 +9,12 @@ import { BooksService } from './books.service';
 export class AppComponent {
     books: string[] = [];
 
-    constructor(private http: Http, private service: BooksService) { }
+    constructor(private service: BooksService) { }
 
     search(title: string) {
         this.books = [];
         this.service.getBooks(title).subscribe(
-            books => this.books = books,
+            success => this.books = success,
             error => console.error(error)
         );
     }
