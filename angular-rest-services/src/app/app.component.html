@@ -2,8 +2,6 @@
 
 <input #title type="text">
 
-<button (click)="search(title.value); title.value=''">Search (logic in the controller)</button>
-
-<button (click)="seek(title.value); title.value=''">Search (logic in a service)</button>
+<button (click)="search(title.value); title.value=''">Search</button>
 
 <p *ngFor="let book of books">{{book}}</p>
