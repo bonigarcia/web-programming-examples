@@ -1,21 +1,22 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class BooksService {
 
-    private myBooks: string[] = ['Spring in Action', 'Java for Web Applications', 'Spring Boot Cookbook'];
+  private myBooks: string[] = ['Spring in Action', 'Java for Web Applications', 'Spring Boot Cookbook'];
 
-    getBooks(key: string) {
-        let out: string[] = [];
-        for (let book of this.myBooks) {
-            if (book.includes(key)) {
-                out.push(book);
-            }
-        }
-        return out;
+  getBooks(key: string) {
+    let out: string[] = [];
+    for (let book of this.myBooks) {
+      if (book.includes(key)) {
+        out.push(book);
+      }
     }
-    
-    getAllBooks() {
-        return this.myBooks;
-    }
+    return out;
+  }
+
+  getAllBooks() {
+    return this.myBooks;
+  }
+
 }
