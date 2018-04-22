@@ -8,7 +8,7 @@ import { BooksService } from './books.service';
     templateUrl: './app.component.html'
 })
 export class AppComponent {
-    private books: string[] = [];
+    books: string[] = [];
 
     constructor(private http: Http, private service: BooksService) { }
 
