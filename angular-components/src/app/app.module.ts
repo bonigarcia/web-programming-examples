@@ -1,15 +1,26 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import {RootComponent} from './components/root.component';
-import {HeaderComponent} from './components/header.component';
-import {SidebarComponent} from './components/sidebar.component';
-import {ContentComponent} from './components/content.component';
-import {FooterComponent} from './components/footer.component';
+
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ContentComponent } from './content/content.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 @NgModule({
-  declarations: [RootComponent, HeaderComponent, SidebarComponent, ContentComponent, FooterComponent],
-  imports: [BrowserModule],
-  bootstrap: [RootComponent]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    SidebarComponent,
+    ContentComponent,
+    FooterComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

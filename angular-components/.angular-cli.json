@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "angular-hello-world"
+    "name": "angular-components"
   },
   "apps": [
     {
@@ -55,6 +55,28 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
+    "class": {
+      "spec": false
+    },
+    "component": {
+      "inlineStyle": true,
+      "inlineTemplate": true,
+      "spec": false
+    },
+    "directive": {
+      "spec": false
+    },
+    "guard": {
+      "spec": false
+    },
+    "module": {
+      "spec": false
+    },
+    "pipe": {
+      "spec": false
+    },
+    "service": {
+      "spec": false
+    }
   }
 }
