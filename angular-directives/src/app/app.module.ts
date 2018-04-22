@@ -1,14 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoot } from './components/app.root';
-import { NgFor } from './components/ngfor';
-import { NgIf } from './components/ngif';
-import { NgSwitch } from './components/ngswitch';
+
+import { AppComponent } from './app.component';
+import { ForComponent } from './for/for.component';
+import { IfComponent } from './if/if.component';
+import { SwitchComponent } from './switch/switch.component';
+
 
 @NgModule({
-    imports: [BrowserModule],
-    declarations: [AppRoot, NgFor, NgIf, NgSwitch],
-    bootstrap: [AppRoot]
+  declarations: [
+    AppComponent,
+    ForComponent,
+    IfComponent,
+    SwitchComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
