@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { Book, BookService } from './book.service';
+import {Component} from '@angular/core';
+import {Book, BookService} from './book.service';
 
 @Component({
-    template: `
+  template: `
 <h2>Books</h2>
 <ul>
    <li *ngFor="let book of books">
@@ -13,9 +13,9 @@ import { Book, BookService } from './book.service';
 })
 export class BookListComponent {
 
-    books: Book[];
+  books: Book[];
 
-    constructor(service: BookService) {
-        this.books = service.getBooks();
-    }
+  constructor(service: BookService) {
+    this.books = service.getBooks();
+  }
 }

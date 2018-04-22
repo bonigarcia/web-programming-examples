@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Book, BookService } from './book.service';
+import {Component} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {Book, BookService} from './book.service';
 
 @Component({
-    template: `
+  template: `
 <h2>{{book.title}}</h2>
 <div>
    <label>Id: </label>{{book.id}}
@@ -17,14 +17,14 @@ import { Book, BookService } from './book.service';
 })
 export class BookDetailComponent {
 
-    book: Book;
+  book: Book;
 
-    constructor(private router: Router, activatedRoute: ActivatedRoute, service: BookService) {
-        let id = activatedRoute.snapshot.params['id'];
-        this.book = service.getBook(id);
-    }
+  constructor(private router: Router, activatedRoute: ActivatedRoute, service: BookService) {
+    let id = activatedRoute.snapshot.params['id'];
+    this.book = service.getBook(id);
+  }
 
-    back() {
-        this.router.navigate(['/books']);
-    }
+  back() {
+    this.router.navigate(['/books']);
+  }
 }
