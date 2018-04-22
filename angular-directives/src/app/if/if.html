@@ -1,0 +1,7 @@
+<h3>NgIf example</h3>
+
+<ul>
+   <ng-container *ngFor="let person of people">
+      <li *ngIf="person.age < 30">{{ person.name }} ({{ person.age }})</li>
+   </ng-container>
+</ul>
